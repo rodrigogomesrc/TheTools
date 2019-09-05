@@ -1,0 +1,19 @@
+.Container {
+
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.Main-content {
+
+    line-height: 1.5;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+p {
+
+    margin-bottom: 10px;
+}

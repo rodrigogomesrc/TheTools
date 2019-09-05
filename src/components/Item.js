@@ -14,7 +14,7 @@ class Item extends Component {
 
         return(
 
-            <div>
+            <div className="item-container">
                 <div className="top-line"></div>
                 <div className="item-content">
                     <h2>{title}</h2>
