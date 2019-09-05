@@ -10,7 +10,7 @@ class Item extends Component {
 
         return(
 
-            <p>This is a Item</p>
+            <p>This is an Item</p>
         )
     }
 }

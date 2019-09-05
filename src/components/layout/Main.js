@@ -4,7 +4,7 @@ import Item from '../Item';
 class Main extends Component {
 
     // Later this will be adapted to be able to make a english version
-    // Probably I'll use the same component and make it with a english url to open the english version
+    // Probably I'll use the same component and pass the english data to it, including a new url
     state = {
 
         tools : [
