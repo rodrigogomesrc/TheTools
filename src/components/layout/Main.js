@@ -10,7 +10,7 @@ class Main extends Component {
         tools : [
             {
                 id: 1,
-                title: 'Calculadora de Regra de 3',
+                title: 'Calculadora de Regra de Três',
                 url: "/regra_de_tres",
                 text: "Faça calculos de regra de três facilmente ou calcule a porcentagem de um valor em outro"
             },
@@ -22,7 +22,8 @@ class Main extends Component {
 
         return(
             <div>
-                <Item />
+                <Item data={this.state.tools[0]} />
+                
             </div>
         )
     }

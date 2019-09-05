@@ -6,7 +6,7 @@ function Footer() {
     return(
 
         <footer>
-            <div id="content">
+            <div class="footer-content">
                 <p>
                     Developed by
                     <a href="https://rodrigogomesrc.github.io/" target="_blank" rel="noopener noreferrer"> Rodrigo Rocha</a>
