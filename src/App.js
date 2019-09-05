@@ -1,16 +1,21 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Main from './components/layout/Main';
+import RegraDe3 from './components/pages/RegraDe3';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Route exact path="/" component={Main}/>
+        <Route path="/calculadora-regra-de-tres" component={RegraDe3}/>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

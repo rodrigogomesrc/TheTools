@@ -12,8 +12,8 @@ class Main extends Component {
             {
                 id: 1,
                 title: 'Calculadora de Regra de Três',
-                url: "/regra_de_tres",
-                text: "Faça calculos de regra de três facilmente ou calcule a porcentagem de um valor em outro"
+                url: "/calculadora-regra-de-tres",
+                text: "Faça cálculos de Regra De Três facilmente ou calcule a porcentagem de um valor em outro."
             },
     
         ]
@@ -27,8 +27,8 @@ class Main extends Component {
             <div className="Container">
 
                 <div className="Main-content">
-                    <h1>TheTools</h1>
-                    <p>TheTools é um conjunto de ferramentas matemáticas para ajudar em calculos do dia a dia.</p>
+                    <h1>Bem vindo(a) ao TheTools</h1>
+                    <p>TheTools é um conjunto de ferramentas matemáticas para ajudar em cálculos do dia a dia.</p>
                     <p>Aqui abaixo estão as ferramentas inclusas no site.</p>
                 </div>
             

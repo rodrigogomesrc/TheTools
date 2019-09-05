@@ -7,7 +7,7 @@ class RegraDe3 extends Component {
 
         return (
 
-            <p>Página da Régra de 3</p>
+            <p>Página da Regra de 3</p>
         )
     }
 }

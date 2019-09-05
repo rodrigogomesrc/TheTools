@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import './Item.css';
 
 class Item extends Component {
@@ -19,7 +20,7 @@ class Item extends Component {
                 <div className="item-content">
                     <h2>{title}</h2>
                     <p>{text}</p>
-                    <a href={url}>Acessar</a>
+                    <Link className="navlink" to={url}>Acessar</Link>
                 </div>
             </div>
         )

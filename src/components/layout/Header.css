@@ -6,20 +6,9 @@
     margin-bottom: 50px;
 }
 
-#title{
+#title {
 
     float: left;
     margin-left: 75px;
     cursor: pointer;
-}
-
-#button {
-
-    float: right;
-    padding: 5px 10px;
-    margin-right: 75px;
-    border: 2px solid white;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: normal;
 }
