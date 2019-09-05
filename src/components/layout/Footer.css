@@ -1,0 +1,21 @@
+footer{
+  
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center; 
+    height: 100px;
+
+}
+
+#content {
+    text-decoration: none;
+    padding: 30px;
+}
+
+a{
+
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+
+}

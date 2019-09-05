@@ -1,10 +1,18 @@
 import React from 'react';
+import './Footer.css';
 
 function Footer() {
 
     return(
 
-        <p>Footer</p>
+        <footer>
+            <div id="content">
+                <p>
+                    Developed by
+                    <a href="https://rodrigogomesrc.github.io/" target="_blank" rel="noopener noreferrer"> Rodrigo Rocha</a>
+                </p>
+            </div>
+        </footer>
     )
 }
 
