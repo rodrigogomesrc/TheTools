@@ -1,4 +1,4 @@
-.line {
+.error {
 
-    float: left;
+    color: red;
 }

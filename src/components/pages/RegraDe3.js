@@ -6,11 +6,14 @@ class RegraDe3 extends Component {
 
     state = {
 
-        A: null,
-        B: null,
-        C: null,
-        X: 'X'
+        A: 0,
+        B: 0,
+        C: 0,
+        X: 'X',
+        valid : true,
+        zero:  true
     } 
+
 
     calculate = () => {
 
@@ -19,10 +22,41 @@ class RegraDe3 extends Component {
 
     }
 
-    onChange = (e) => {
+    validate = () => {
+
+        // the setState function is assincronous. I have to fix this function in order to wait for it
+        const {A, B, C} = this.state;
+
+        if(isNaN(A) || isNaN(B) || isNaN(C)){
+
+            this.setState({valid: false});
+
+        } else {
+
+            this.setState({valid: true});
+        }
 
         
-        this.setState({[e.target.name] : e.target.value});
+        if (A === 0 || B === 0 || C === 0 ) {
+
+            this.setState({zero: true});
+
+        } else {
+
+            this.setState({zero: false});
+        }
+
+    }
+
+    onChange = (e) => {
+
+        let val = Number(e.target.value);
+
+        this.setState({[e.target.name] : val});
+        console.log(this.state.A);
+        this.validate();
+
+        // Make the answer X again if you change the numbers after calculating
         if (this.state.X !== 'X') {
             this.setState({X: 'X'});
         }
@@ -41,6 +75,7 @@ class RegraDe3 extends Component {
             <div className="Container">
     
                 <h2>Regra de Três</h2>
+                <p>{this.state.zero? 'zero': 'não zero'}</p>
 
                 <form onSubmit={this.onSubmit}>
 
@@ -48,7 +83,6 @@ class RegraDe3 extends Component {
                         type='text' 
                         name="A" placeholder="A" 
                         onChange={this.onChange} 
-                        value={this.state.A}
                     />
                     <p>Está para</p>
 
@@ -56,7 +90,6 @@ class RegraDe3 extends Component {
                         type='text' 
                         name="B" placeholder="B" 
                         onChange={this.onChange}
-                        value={this.state.B}
                     />
                     <p>Assim Como</p>
 
@@ -64,7 +97,6 @@ class RegraDe3 extends Component {
                         type='text' 
                         name="C" placeholder="C" 
                         onChange={this.onChange} 
-                        value={this.state.C}
                     />    
 
                     <p>
@@ -75,9 +107,12 @@ class RegraDe3 extends Component {
                     <input 
                         type='submit' 
                         value='Calcular' 
+                        disabled={!this.state.valid || this.state.zero}
                     />
+                    {this.state.valid? null :  <p className="error">Valores Inválidos</p>}
    
                 </form>
+
 
             </div>
             
