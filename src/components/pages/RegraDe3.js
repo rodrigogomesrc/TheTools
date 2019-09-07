@@ -17,8 +17,9 @@ class RegraDe3 extends Component {
 
     calculate = () => {
 
-        const X = (this.state.B * this.state.C) / this.state.A;
-        this.setState({X});
+        let X = (this.state.B * this.state.C) / this.state.A;
+        X = X.toFixed(2);
+        this.setState({X}); // I use only X instead of X:X because the two variables are written the same way
 
     }
 
@@ -71,47 +72,106 @@ class RegraDe3 extends Component {
 
         return (
 
-            <div className="Container">
-    
-                <h2>Regra de Três</h2>
-                <p>{this.state.zero? 'zero': 'não zero'}</p>
+            <div className="Container" id="regra3">
+                <div className="top-line line-box"></div>
+                <div className="box">
+                    
+                    <div className="box-content">
 
-                <form onSubmit={this.onSubmit}>
+                        <h2 id="regra3-title">Regra de Três</h2>
+                        <form onSubmit={this.onSubmit}>
 
-                    <input 
-                        type='text' 
-                        name="A" placeholder="A" 
-                        onChange={this.onChange} 
-                    />
-                    <p>Está para</p>
+                            <div className="row">
+                                <div>
+                                    <input 
+                                        className='input'
+                                        type='text' 
+                                        name="A" placeholder="A" 
+                                        onChange={this.onChange} 
+                                    />
+                                </div>
 
-                    <input 
-                        type='text' 
-                        name="B" placeholder="B" 
-                        onChange={this.onChange}
-                    />
-                    <p>Assim Como</p>
+                                <div>
+                                    <p>Está Para</p>
+                                </div>
 
-                    <input 
-                        type='text' 
-                        name="C" placeholder="C" 
-                        onChange={this.onChange} 
-                    />    
+                                <div>
 
-                    <p>
-                        Está para
-                        <span> {this.state.X}</span>
-                    </p>
+                                    <input 
+                                        className='input'
+                                        type='text' 
+                                        name="B" placeholder="B" 
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                            </div>
+                        
+                            
+                        <div className="row2">
+
+                            <div>
+                                <p id="middle">Assim Como</p>
+                            </div>
+                            
+                        </div>
+                        
+                        <div className="row">
+
+                                <div>
+                                    <input 
+                                        className='input'
+                                        type='text' 
+                                        name="C" placeholder="C" 
+                                        onChange={this.onChange} 
+                                    />    
+                                </div>
+
+                                <div>
+                                    <p> Está Para </p>
+                                </div>
+
+                                <div>
+                                    <input 
+                                        className='input'
+                                        id="X"
+                                        type='text' 
+                                        name="X" placeholder={this.state.X} 
+                                        value={this.state.X}
+                                        disabled={true}
+                                    />    
+                                </div>
+                            
+                        </div>
+
+                        <div className="row2" >
+
+                            <div>
+                                    <input 
+                                        className='button'
+                                        type='submit' 
+                                        value='Calcular' 
+                                        disabled={!this.state.valid || this.state.zero}
+                                    />
+                            </div>
+
+                            </div>
+
+                            {this.state.valid? null : (
+                                <div className="row">
+
+                                    <div>
+                                        <p className="error">Valores Inválidos</p>
+                                    </div>
+
+                                </div>
+                            )}        
         
-                    <input 
-                        type='submit' 
-                        value='Calcular' 
-                        disabled={!this.state.valid || this.state.zero}
-                    />
-                    {this.state.valid? null :  <p className="error">Valores Inválidos</p>}
-   
-                </form>
+                        </form>
 
+                    </div>
+
+                </div>
 
             </div>
             

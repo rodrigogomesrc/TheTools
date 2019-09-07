@@ -14,3 +14,42 @@
 
     background-color: #fafafa;
 }
+
+.top-line {
+
+    height: 5px;
+    background-color: blue;
+}
+
+.input {
+
+    border: 1px solid #4cb1ef;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.button {
+
+    text-decoration: none;
+    border: none;
+    color: white;
+    background-color: #4cb1ef;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.button:disabled {
+
+    background-color: grey;
+    color: black;
+}
+
+.input:focus{
+
+    border: 1px solid blue;
+}
