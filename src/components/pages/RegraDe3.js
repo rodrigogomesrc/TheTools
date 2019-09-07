@@ -24,7 +24,6 @@ class RegraDe3 extends Component {
 
     validate = () => {
 
-        // the setState function is assincronous. I have to fix this function in order to wait for it
         const {A, B, C} = this.state;
 
         if(isNaN(A) || isNaN(B) || isNaN(C)){
@@ -52,11 +51,11 @@ class RegraDe3 extends Component {
 
         let val = Number(e.target.value);
 
-        this.setState({[e.target.name] : val});
-        console.log(this.state.A);
-        this.validate();
+        this.setState({[e.target.name] : val},() => {
 
-        // Make the answer X again if you change the numbers after calculating
+            this.validate();
+        }); 
+        
         if (this.state.X !== 'X') {
             this.setState({X: 'X'});
         }
