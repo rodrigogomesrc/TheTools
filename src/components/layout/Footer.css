@@ -4,12 +4,12 @@ footer{
     color: white;
     text-align: center; 
     height: 100px;
-    margin-top: 50px;
 }
 
 .footer-content {
     text-decoration: none;
     padding: 30px;
+    margin-top: 50px;
 }
 
 footer a{

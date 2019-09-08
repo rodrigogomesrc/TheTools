@@ -86,7 +86,8 @@ class RegraDe3 extends Component {
                                     <input 
                                         className='input'
                                         type='text' 
-                                        name="A" placeholder="A" 
+                                        name="A" 
+                                        placeholder="A" 
                                         onChange={this.onChange} 
                                     />
                                 </div>
@@ -100,7 +101,8 @@ class RegraDe3 extends Component {
                                     <input 
                                         className='input'
                                         type='text' 
-                                        name="B" placeholder="B" 
+                                        name="B" 
+                                        placeholder="B" 
                                         onChange={this.onChange}
                                     />
                                 </div>
@@ -122,7 +124,8 @@ class RegraDe3 extends Component {
                                     <input 
                                         className='input'
                                         type='text' 
-                                        name="C" placeholder="C" 
+                                        name="C" 
+                                        placeholder="C" 
                                         onChange={this.onChange} 
                                     />    
                                 </div>
@@ -136,7 +139,8 @@ class RegraDe3 extends Component {
                                         className='input'
                                         id="X"
                                         type='text' 
-                                        name="X" placeholder={this.state.X} 
+                                        name="X" 
+                                        placeholder={this.state.X} 
                                         value={this.state.X}
                                         disabled={true}
                                     />    
@@ -155,7 +159,7 @@ class RegraDe3 extends Component {
                                     />
                             </div>
 
-                            </div>
+                        </div>
 
                             {this.state.valid? null : (
                                 <div className="row">
