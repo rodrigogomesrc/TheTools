@@ -150,12 +150,12 @@ class RegraDe3 extends Component {
                         <div className="row-full" >
 
                             <div>
-                                    <input 
-                                        className='button'
-                                        type='submit' 
-                                        value='Calcular' 
-                                        disabled={!this.state.valid || this.state.zero}
-                                    />
+                                <input 
+                                    className='button'
+                                    type='submit' 
+                                    value='Calcular' 
+                                    disabled={!this.state.valid || this.state.zero}
+                                />
                             </div>
 
                         </div>

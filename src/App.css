@@ -149,7 +149,7 @@
      
     .row div {
     
-        margin: 5px;
+        margin-top: 5px;
         flex: 1;
     
     }
@@ -173,7 +173,7 @@
     
     .row-full div {
     
-        margin: 5px;
+        margin-top: 5px;
         flex: 1;
     }
 

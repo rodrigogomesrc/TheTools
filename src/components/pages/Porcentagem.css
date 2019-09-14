@@ -1,0 +1,30 @@
+#porcentagem-box {
+
+    max-width: 800px;
+}
+
+#porcentagem-box-content {
+
+    max-width: 800px;
+}
+#porcentagem-line {
+
+    max-width: 862px;
+}
+
+#partition {
+
+    padding: 30px;
+
+}
+#partition div {
+
+    height: 3px;
+    background-color: blue;
+}
+
+#first-button {
+
+    margin-bottom: 0;
+}
+
