@@ -20,7 +20,7 @@ class Item extends Component {
                 <div className="item-content">
                     <h2>{title}</h2>
                     <p>{text}</p>
-                    <Link className="pageLink" to={url}>Acessar</Link>
+                    <Link className="page-link" to={url}>Acessar</Link>
                 </div>
             </div>
         )

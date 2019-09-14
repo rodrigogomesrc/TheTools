@@ -16,6 +16,13 @@
     background-color: #fafafa;
 }
 
+.page-link {
+
+    text-decoration: none;
+    color:#4cb1ef;
+    font-weight: bold;
+}
+
 .top-line {
 
     height: 5px;
