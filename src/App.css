@@ -22,6 +22,27 @@
     background-color: blue;
 }
 
+.box {
+    
+    min-height: 330px;
+}
+
+.box-title {
+
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.box {
+
+    padding: 30px;
+    max-width: 600px;
+    min-height: 430px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0px 4px 10px 2px rgba(0,0,0,0.5);
+}
+
 .input {
 
     border: 1px solid #4cb1ef;
@@ -53,4 +74,107 @@
 .input:focus{
 
     border: 1px solid blue;
+}
+
+.error {
+
+    background-color: #ff5252;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.line-box {
+
+    max-width: 662px;
+    margin: 0 auto;
+}
+
+.box-content {
+
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.row input {
+
+    width: calc(100% - 12px);
+    height: 25px;
+}
+
+.row-full input {
+
+    width: 100%;
+    height: 35px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.row-full p {
+
+    margin-top: 10px;
+}
+
+.row div p {
+
+    text-align: center;
+    padding-top: 8px;
+}
+
+.row-full p {
+
+    text-align: center;
+}
+
+.x {
+    border: 1px solid white;
+    background-color: #4cb1ef;
+    color: white;
+}
+
+@media (min-width: 600px){
+
+    .box{
+    
+        min-height: 330px;
+    }
+
+    .row {
+
+        display: flex;
+        justify-content: space-between;
+    }
+     
+    .row div {
+    
+        margin: 5px;
+        flex: 1;
+    
+    }
+    
+    .row div p {
+    
+        text-align: center;
+    }
+    
+    .row div input {
+        
+        height: 20px;
+        max-width: 200px;
+    }
+    
+    .row-full {
+    
+        display: flex;
+        justify-content: center;
+    }
+    
+    .row-full div {
+    
+        margin: 5px;
+        flex: 1;
+    }
+
 }

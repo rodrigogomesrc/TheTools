@@ -78,7 +78,7 @@ class RegraDe3 extends Component {
                     
                     <div className="box-content">
 
-                        <h2 id="regra3-title">Regra de Três</h2>
+                        <h2 className="box-title">Regra de Três</h2>
                         <form onSubmit={this.onSubmit}>
 
                             <div className="row">
@@ -110,7 +110,7 @@ class RegraDe3 extends Component {
                             </div>
                         
                             
-                        <div className="row2">
+                        <div className="row-full">
 
                             <div>
                                 <p id="middle">Assim Como</p>
@@ -136,8 +136,7 @@ class RegraDe3 extends Component {
 
                                 <div>
                                     <input 
-                                        className='input'
-                                        id="X"
+                                        className='input x'
                                         type='text' 
                                         name="X" 
                                         placeholder={this.state.X} 
@@ -148,7 +147,7 @@ class RegraDe3 extends Component {
                             
                         </div>
 
-                        <div className="row2" >
+                        <div className="row-full" >
 
                             <div>
                                     <input 

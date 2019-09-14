@@ -8,7 +8,7 @@ function Footer() {
         <footer>
             <div className="footer-content">
                 <p>
-                    Developed by
+                    Desenvolvido por
                     <a href="https://rodrigogomesrc.github.io/" target="_blank" rel="noopener noreferrer"> Rodrigo Rocha</a>
                 </p>
             </div>

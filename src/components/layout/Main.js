@@ -15,6 +15,12 @@ class Main extends Component {
                 url: "/calculadora-regra-de-tres",
                 text: "Faça cálculos de Regra De Três facilmente ou calcule a porcentagem de um valor em outro."
             },
+            {
+                id: 2,
+                title: 'Calculadora de Porcentagem',
+                url: "/calculadora-porcentagem",
+                text: "Faça cálculos de porcentagem de várias formas diferentes."
+            }
     
         ]
     }
@@ -31,16 +37,9 @@ class Main extends Component {
                     <p>TheTools é um conjunto de ferramentas matemáticas para ajudar em cálculos do dia a dia.</p>
                     <p>Aqui abaixo estão as ferramentas inclusas no site.</p>
                 </div>
-            
-                <Item data={this.state.tools[0]} />
-                <Item data={this.state.tools[0]} />
-                <Item data={this.state.tools[0]} />
-                <Item data={this.state.tools[0]} />
-                <Item data={this.state.tools[0]} />
-                <Item data={this.state.tools[0]} />
-                <Item data={this.state.tools[0]} />
-                <Item data={this.state.tools[0]} />
-                <Item data={this.state.tools[0]} />
+                {
+                    this.state.tools.map( (tool) => <Item data={tool} />)
+                }
                 
             </div>
         )
