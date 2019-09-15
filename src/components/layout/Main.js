@@ -20,6 +20,18 @@ class Main extends Component {
                 title: 'Calculadora de Porcentagem',
                 url: "/calculadora-porcentagem",
                 text: "Faça cálculos de porcentagem de várias formas diferentes."
+            },
+            {
+                id: 3,
+                title: 'Sorteador',
+                url: "/sortear-numeros-grupos-e-letras",
+                text: "Sorteie números, grupos e letras"
+            },
+            {
+                id: 4,
+                title: 'Conversor de Tempo',
+                url: "/calculadora-porcentagem",
+                text: "Faça conversões entre segundos, minutos, horas, dias, semanas, meses e anos"
             }
     
         ]
@@ -38,7 +50,7 @@ class Main extends Component {
                     <p>Aqui abaixo estão as ferramentas inclusas no site.</p>
                 </div>
                 {
-                    this.state.tools.map( (tool) => <Item data={tool} />)
+                    this.state.tools.map( (tool) => <Item key={tool.id} data={tool} />)
                 }
                 
             </div>
