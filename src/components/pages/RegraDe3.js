@@ -17,10 +17,12 @@ class RegraDe3 extends Component {
 
     calculate = () => {
 
-        let X = (this.state.B * this.state.C) / this.state.A;
-        X = X.toFixed(2);
-        this.setState({X}); // I use only X instead of X:X because the two variables are written the same way
+        if(!this.state.zero && this.state.valid){
 
+            let X = (this.state.B * this.state.C) / this.state.A;
+            X = X.toFixed(2);
+            this.setState({X});
+        }
     }
 
     validate = () => {
@@ -43,7 +45,10 @@ class RegraDe3 extends Component {
 
         } else {
 
-            this.setState({zero: false});
+            // when values are not null it calls the calculate that only works if values are valid
+            this.setState({zero: false}, () => {
+                this.calculate();
+            });
         }
 
     }
@@ -57,17 +62,7 @@ class RegraDe3 extends Component {
             this.validate();
         }); 
         
-        if (this.state.X !== 'X') {
-            this.setState({X: 'X'});
-        }
     }
-
-    onSubmit = (e) => {
-
-        e.preventDefault();
-        this.calculate();
-    }
-
     render() {
 
         return (
@@ -147,28 +142,15 @@ class RegraDe3 extends Component {
                             
                         </div>
 
-                        <div className="row-full" >
+                        {this.state.valid? null : (
+                            <div className="row">
 
-                            <div>
-                                <input 
-                                    className='button'
-                                    type='submit' 
-                                    value='Calcular' 
-                                    disabled={!this.state.valid || this.state.zero}
-                                />
-                            </div>
-
-                        </div>
-
-                            {this.state.valid? null : (
-                                <div className="row">
-
-                                    <div>
-                                        <p className="error">Valores Inválidos</p>
-                                    </div>
-
+                                <div>
+                                    <p className="error" id="regra3-error">Valores Inválidos</p>
                                 </div>
-                            )}        
+
+                            </div>
+                        )}        
         
                         </form>
 

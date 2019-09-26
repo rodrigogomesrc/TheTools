@@ -13,27 +13,48 @@ class Porcentagem extends Component {
         X2: 'X',
         zero: true,
         zero2: true,
-        valid: false,
-        valid2: false
+        valid: true,
+        valid2: true
     }
 
-    calculate = () => {
+    calculate = ( calcNumber ) => {
 
-        const {A, B, A2, B2, valid, valid2, zero2} = this.state;
+        const {A, B, A2, B2, valid, valid2, zero, zero2} = this.state;
 
-        if(valid) {
+        if(!this.state.zero && this.state.valid){
 
-            let answer = A / B * 100;
-            answer = answer.toFixed(2);
-            this.setState({X: answer});
+            switch(calcNumber){
+                
+
+                case 1:
+
+                    if(valid  && !zero) {
+
+                        let answer = A / B * 100;
+                        answer = answer.toFixed(2);
+                        this.setState({X: answer});
+                    }
+
+                    break;
+
+                case 2: 
+
+                    if(valid2 && !zero2) {
+
+                        let answer = (A2 / 100) * B2;
+                        answer = answer.toFixed(2);
+                        this.setState({X2: answer});
+                    }
+                    break;
+
+                default:
+
+                    break;
+            }
+
         }
 
-        if(valid2 && !zero2) {
 
-            let answer = (A2 / 100) * B2;
-            answer = answer.toFixed(2);
-            this.setState({X2: answer});
-        }
     }
 
     validate = () => {
@@ -58,7 +79,6 @@ class Porcentagem extends Component {
 
             this.setState({valid2: true});
         }
-
         
         if (A === 0 || B === 0) {
 
@@ -66,7 +86,10 @@ class Porcentagem extends Component {
 
         } else {
 
-            this.setState({zero: false});
+            // when values are not null it calls the calculate that only works if values are valid
+            this.setState({zero: false}, () => {
+                this.calculate(1);
+            });
         }
 
         if (A2 === 0 || B2 === 0) {
@@ -75,7 +98,9 @@ class Porcentagem extends Component {
 
         } else {
 
-            this.setState({zero2: false});
+            this.setState({zero2: false}, () => {
+                this.calculate(2);
+            });
         }
 
     }
@@ -102,7 +127,6 @@ class Porcentagem extends Component {
     onSubmit = (e) => {
 
         e.preventDefault();
-        this.calculate();
     }
 
     render() {
@@ -115,7 +139,7 @@ class Porcentagem extends Component {
                         <h2 className="box-title">Porcentagem</h2>
                         <form onSubmit={this.onSubmit}>
 
-                            <div className="row">
+                            <div className="row porcentagens">
                                 <div>
                                     <input 
                                         className='input'
@@ -156,24 +180,21 @@ class Porcentagem extends Component {
                                     />
                                 </div>
     
-                            </div> 
-                            <div className="row-full" >
-
-                                <div>
-                                    <input 
-                                        id="first-button"
-                                        className='button'
-                                        type='submit' 
-                                        value='Calcular' 
-                                        disabled={!this.state.valid || this.state.zero}
-                                    />
-                                </div>
-
                             </div>
+                            {this.state.valid? null : (
+                                <div className="row">
+
+                                    <div>
+                                        <p className="error" id="porcentagem-error">Valores Inválidos</p>
+                                    </div>
+
+                                </div>
+                            )}        
+        
                             <div className="row-full" id="partition">
                                 <div></div>
                             </div>
-                            <div className="row">
+                            <div className="row porcentagens">
 
                             <div>
                                 <input 
@@ -215,19 +236,17 @@ class Porcentagem extends Component {
                                 </div>
                                 
                             </div>
-                            <div className="row-full" >
+                            {this.state.valid2? null : (
+                                <div className="row" id="porcentagem-error">
 
-                                <div>
-                                    <input 
-                                        className='button'
-                                        type='submit' 
-                                        value='Calcular' 
-                                        disabled={!this.state.valid2 || this.state.zero2}
-                                    />
+                                    <div>
+                                        <p className="error">Valores Inválidos</p>
+                                    </div>
+
                                 </div>
-
-                            </div>
+                            )}        
                         </form>
+                       
                     </div>
                 </div>
         

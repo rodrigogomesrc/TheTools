@@ -1,6 +1,7 @@
 #porcentagem-box {
 
     max-width: 800px;
+
 }
 
 #porcentagem-box-content {
@@ -14,9 +15,9 @@
 
 #partition {
 
-    padding: 30px;
-
+    margin-bottom: 30px;
 }
+
 #partition div {
 
     height: 3px;
@@ -28,3 +29,20 @@
     margin-bottom: 0;
 }
 
+.porcentagens {
+
+    margin-bottom: 30px;
+}
+
+#porcentagem-error {
+
+    margin-bottom: 30px;
+}
+
+@media (min-width: 600px){
+
+    #porcentagem-box {
+
+        min-height: 375px;
+    }
+}

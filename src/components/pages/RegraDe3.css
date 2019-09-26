@@ -2,3 +2,17 @@
     
     font-weight: bold;
 }
+
+#regra3-error {
+
+    margin-top: 30px;
+}
+
+
+@media (min-width: 600px){
+
+    #regra3 .box {
+
+        min-height: 255px;
+    }
+}
