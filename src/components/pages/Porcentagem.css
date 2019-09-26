@@ -45,4 +45,9 @@
 
         min-height: 375px;
     }
+
+    .temp-separator{
+
+        height: 68px;
+    }
 }

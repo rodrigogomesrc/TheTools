@@ -130,14 +130,7 @@ class RegraDe3 extends Component {
                                 </div>
 
                                 <div>
-                                    <input 
-                                        className='input x'
-                                        type='text' 
-                                        name="X" 
-                                        placeholder={this.state.X} 
-                                        value={this.state.X}
-                                        disabled={true}
-                                    />    
+                                  <p className="x">{this.state.X}</p>
                                 </div>
                             
                         </div>

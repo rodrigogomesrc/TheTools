@@ -124,11 +124,6 @@ class Porcentagem extends Component {
         }
     }
 
-    onSubmit = (e) => {
-
-        e.preventDefault();
-    }
-
     render() {
 
         return(
@@ -155,15 +150,7 @@ class Porcentagem extends Component {
                                 </div>
 
                                 <div>
-
-                                    <input 
-                                        className='input x'
-                                        type='text' 
-                                        name="X" 
-                                        placeholder="X" 
-                                        value={this.state.X}
-                                        onChange={this.onChange}
-                                    />
+                                    <p className="x">{this.state.X}</p>
                                 </div>
 
                                 <div>
@@ -181,7 +168,7 @@ class Porcentagem extends Component {
                                 </div>
     
                             </div>
-                            {this.state.valid? null : (
+                            {this.state.valid? <div className='temp-separator'></div> : (
                                 <div className="row">
 
                                     <div>
@@ -224,19 +211,11 @@ class Porcentagem extends Component {
                                 </div>
 
                                 <div>
-
-                                    <input 
-                                        className='input x'
-                                        type='text' 
-                                        name="X2" 
-                                        placeholder="X" 
-                                        value={this.state.X2}
-                                        onChange={this.onChange}
-                                    />
+                                    <p className="x">{this.state.X2}</p>
                                 </div>
                                 
                             </div>
-                            {this.state.valid2? null : (
+                            {this.state.valid2? <div className='temp-separator'></div> : (
                                 <div className="row" id="porcentagem-error">
 
                                     <div>
