@@ -74,7 +74,7 @@ class RegraDe3 extends Component {
                     <div className="box-content">
 
                         <h2 className="box-title">Regra de Três</h2>
-                        <form onSubmit={this.onSubmit}>
+                        <form>
 
                             <div className="row">
                                 <div>

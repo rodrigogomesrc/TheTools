@@ -27,12 +27,13 @@ class Main extends Component {
                 url: "/sortear-numeros-grupos-e-letras",
                 text: "Sorteie números, grupos e letras"
             },
+            /*
             {
                 id: 4,
                 title: 'Conversor de Tempo',
                 url: "/calculadora-porcentagem",
                 text: "Faça conversões entre segundos, minutos, horas, dias, semanas, meses e anos"
-            }
+            }*/
     
         ]
     }

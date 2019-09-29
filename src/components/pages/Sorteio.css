@@ -1,0 +1,118 @@
+
+.sorteio-numeros-row {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.sorteio-width{
+
+    max-width: 800px;
+}
+
+.sorteio-numeros-block {
+
+    padding: 10px;
+    width: 100%;
+}
+
+.subtitle {
+
+    margin-bottom: 20px;
+}
+
+.forms-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#option-selection div {
+
+    justify-content: space-around;
+    display: flex;
+}
+
+#option-labels {
+
+    margin-bottom: 10px;
+}
+
+#box-content, #box{
+    max-width: 800px;
+}
+
+#line {
+
+    max-width: 860px;
+}
+
+#range{
+
+    display: flex;
+}
+
+#range-start, #range-end{
+
+    flex:4;
+}
+
+#range-separator {
+
+    flex: 1;
+    width: 20px;
+    padding: 0 15px 0 0px;
+}
+
+#separator-bar{
+
+   width: 100%;
+   border-bottom: 2px solid black;
+   margin-top: 13px;
+}
+
+#quantity-form {
+
+   display: flex;
+   justify-content: center;
+}
+
+.sorteio-input {
+
+    max-width: 80px;
+    height: 25px;
+}
+
+.sortear-row {
+
+    margin-top: 20px;
+    display: flex;
+}
+
+
+.results {
+
+    background-color: #4cb1ef;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    width: 50px;
+    flex: 5 5 auto;
+}
+
+.sorteio-button{
+    width: 20px;
+    padding: 10px;
+    text-align: center;
+    flex: 1 2 50px;
+}
+
+.title {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sorteio-title {
+
+    flex: 0 2 auto;
+}
