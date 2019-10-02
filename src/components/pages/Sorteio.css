@@ -93,6 +93,7 @@
 
     background-color: #4cb1ef;
     border-radius: 5px;
+    font-weight: bold;
     color: white;
     padding: 10px;
     width: 50px;
@@ -104,6 +105,13 @@
     padding: 10px;
     text-align: center;
     flex: 1 2 50px;
+    max-height: 25px;
+}
+
+.sorteio-button:hover {
+
+    background-color: #2b8ac4;
+    font-weight: bold;
 }
 
 .title {

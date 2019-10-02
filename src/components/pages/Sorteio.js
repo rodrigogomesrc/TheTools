@@ -6,11 +6,14 @@ export default class Sorteio extends React.Component {
 
     state = {
 
-        start: null,
-        finish: null,
-        numbers: null,
+        start: 1,
+        end: 10,
         quantity: 1,
-        unique: "yes"
+        unique: "yes",
+        numbersSorteados : [],
+        lettersSorteadas : [],
+        noRepeatError: false,
+        rangeError: false
     }
 
     randomLetters = () => {
@@ -21,10 +24,67 @@ export default class Sorteio extends React.Component {
 
     randomNumbers = () => {
 
-        console.log("fsdfsdfs");
+        const {start, end, quantity, unique} = this.state;
+        let numbersSorteados = this.state.numbersSorteados;
+        let noRepeatError = this.state.noRepeatError;
+        let rangeError = this.state.rangeError;
+        let randomNumber = null;
+        numbersSorteados = [];
+
+        // move those validations to the handle input functions
+        // make null values as default and make an error in case they are not provided
+        if(unique == "yes" && (end - start + 1) < quantity ){
+
+            this.setState({noRepeatError: true});
+            noRepeatError = true;
+        }
+        if(start > end || start === end){
+
+            this.setState({rangeError: true});
+            rangeError = true;
+
+        } else {
+
+            rangeError = false;
+            noRepeatError = false;
+            this.setState({numbersSorteados, noRepeatError: false}, () => {
+
+                if(unique == "yes") {
+    
+                    for(var i = 0; i < quantity; i++){
+                    
+                        while (true){
+        
+                            randomNumber = Math.floor(Math.random() * (end + 1 - start));
+                            randomNumber += start;
+                            if(numbersSorteados.indexOf(randomNumber) === -1){
+                                break
+                            }
+                        }
+                        
+                        numbersSorteados.push(randomNumber);
+                    }
+            
+                    this.setState({numbersSorteados});
+    
+                } else {
+    
+                    for(var i = 0; i < quantity; i++){
+                    
+                        randomNumber = Math.floor(Math.random() * (end + 1 - start));
+                        randomNumber += start;
+                        numbersSorteados.push(randomNumber);
+                        this.setState({numbersSorteados});
+                    }
+    
+                }
+    
+            });
+
+        }
     }
 
-   
+
     handleOption = e => {
 
         this.setState({unique: e.target.value});
@@ -32,7 +92,10 @@ export default class Sorteio extends React.Component {
 
     handleInput = e => {
 
-        this.setState({[e.target.name] : e.target.value});
+        if(!isNaN(e.target.value) && e.target.value !== 0){
+
+            this.setState({[e.target.name] : e.target.value});
+        }
     }
 
     render(){
@@ -44,7 +107,7 @@ export default class Sorteio extends React.Component {
                     <div className="box-content" id="box-content">
                         <h2 className="box-title">Sorteador</h2>
                             <div className="row"> 
-                                <h3 className="subtitle">Sortear Número {this.state.quantity}</h3>
+                                <h3 className="subtitle">Sortear Número {this.state.noRepeatError? "true": "false"} </h3>
                             </div>
                             <div className="full-row">
                                 <div className="sorteio-numeros-row">
@@ -58,6 +121,7 @@ export default class Sorteio extends React.Component {
                                                     name="start" 
                                                     placeholder="inicio"
                                                     value={this.state.start}
+                                                    onChange={this.handleInput}
                                                 />
                                             </div>
 
@@ -71,7 +135,8 @@ export default class Sorteio extends React.Component {
                                                     id="end"
                                                     name="end" 
                                                     placeholder="fim"
-                                                    value={this.state.finish}
+                                                    value={this.state.end}
+                                                    onChange={this.handleInput}
                                                 />
                                             </div>
                                         </div>
@@ -81,21 +146,21 @@ export default class Sorteio extends React.Component {
                                         <div className="forms-title">Pode repetir números?</div>
                                         <div id="option-selection">
                                             <div id="option-labels">
-                                                <label for="yes">Sim</label>
-                                                <label for="no">Não</label>
+                                                <label htmlFor="yes">Sim</label>
+                                                <label htmlFor="no">Não</label>
                                             </div>
                                             <div id="options-selectors">
+                                            <input 
+                                                    type="radio" 
+                                                    id="no" value="no" 
+                                                    onChange={this.handleOption} 
+                                                    checked={this.state.unique === "no"}
+                                                />
                                                 <input 
                                                     type="radio" 
                                                     id="yes" value="yes" 
                                                     onChange={this.handleOption}  
                                                     checked={this.state.unique === "yes"}
-                                                />
-                                                <input 
-                                                    type="radio" 
-                                                    id="no" value="no" 
-                                                    onChange={this.handleOption} 
-                                                    checked={this.state.unique === "no"}
                                                 />
                                             </div>
                                         </div>
@@ -118,10 +183,12 @@ export default class Sorteio extends React.Component {
 
                             </div>
                             <div className="sortear-row">
-                                <div className="button sorteio-button sorteio-button" >Sortear</div>
+                                <div className="button sorteio-button sorteio-button" onClick={this.randomNumbers}>Sortear</div>
                                 <div className="title sorteio-title">Números sorteados: </div>
                                 <div className="results">
-                                    {'10, 3, 64, 5, 6, 4'}
+                                {
+                                    this.state.numbersSorteados.map((number) => (number + " "))
+                                }
                                 </div>
                             </div>
                     </div>
