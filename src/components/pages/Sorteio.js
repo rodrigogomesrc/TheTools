@@ -84,14 +84,29 @@ export default class Sorteio extends React.Component {
         }
     }
 
+   
+
+    handleSubmit = () =>{
+
+        // use this function on the buttons to call the randomNumbers or randomLetters and etc
+        // change the validation logic. Think of a better way to do it
+        // because the  handle input shouldn't validate, I guess and the calculate functions either
+    }
+
 
     handleOption = e => {
 
         this.setState({unique: e.target.value});
     }
 
+    // change to OnChange
     handleInput = e => {
 
+        // make a validation function to validate those things I think
+        // or maybe change the other components to not allow type wrong values either
+        // maybe change to allow negative numbers because it doesn't allow if testing for isNan
+        // maybe change all to the onfocusout event so it won't trigger when typing "-" to type a negative number
+        // or make a exception just for the "-"
         if(!isNaN(e.target.value) && e.target.value !== 0){
 
             this.setState({[e.target.name] : e.target.value});
