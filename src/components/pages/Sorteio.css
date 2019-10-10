@@ -12,7 +12,7 @@
 }
 
 .forms-title {
-    
+
     margin-bottom: 20px;
     text-align: center;
 }
@@ -128,7 +128,22 @@
 
    margin-bottom: 30px;
 
-  }
+}
+.sorteio-letters-section{
+
+    margin-top: 20px;
+}
+
+.sorteio-partition {
+
+    margin-bottom: 30px;
+}
+
+.sorteio-partition div {
+
+    height: 3px;
+    background-color: blue;
+}
 
 @media (min-width: 720px){
 

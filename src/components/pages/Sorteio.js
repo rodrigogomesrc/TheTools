@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Sorteio.css';
+import '../SorteioLetters';
+import SorteioLetters from '../SorteioLetters';
 
 export default class Sorteio extends Component {
 
@@ -15,12 +17,6 @@ export default class Sorteio extends Component {
         noRepeatError: false,
         rangeError: false,
         valueError: false
-    }
-
-    randomLetters = () => {
-
-        console.log("fsdfsd");
-
     }
 
     randomNumbers = () => {
@@ -159,19 +155,9 @@ export default class Sorteio extends Component {
         return error;
     }
    
-    handleSubmit = option => {
+    handleSubmit = () => {
 
-        switch(option){
-
-            case 1:
-                this.randomNumbers();
-                break;
-            case 2:
-                this.randomLetters();
-                break;
-            default:
-                break;
-        }
+        this.randomNumbers();
     }
  
     handleOption = e => {
@@ -276,7 +262,7 @@ export default class Sorteio extends Component {
 
                             </div>
                             <div className="sortear-row">
-                                <div className="button sorteio-button" onClick={this.handleSubmit.bind(this, 1)}>Sortear</div>
+                                <div className="button sorteio-button" onClick={this.handleSubmit}>Sortear</div>
                                 <div className="title sorteio-title">Números sorteados: </div>
                                 <div className="results">
                                 {
@@ -284,10 +270,13 @@ export default class Sorteio extends Component {
                                 }
                                 </div>
                             </div>
-                            {
-                                this.error()
-                            }
+                            <div>
+                                {
+                                    this.error()
+                                }
+                            </div>
                     </div>
+                    <SorteioLetters></SorteioLetters>
                 </div>
             </div>
         )
