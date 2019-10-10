@@ -1,35 +1,36 @@
-
-.sorteio-numeros-row {
-
-    display: flex;
-    justify-content: space-between;
-}
-
 .sorteio-width{
 
     max-width: 800px;
 }
 
-.sorteio-numeros-block {
-
-    padding: 10px;
-    width: 100%;
-}
-
 .subtitle {
 
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
     margin-bottom: 20px;
 }
 
 .forms-title {
+    
     margin-bottom: 20px;
     text-align: center;
 }
 
+#option-selection{
+    width: 200px;
+    margin: 0 auto;
+}
+
 #option-selection div {
 
-    justify-content: space-around;
+    justify-content: center;
     display: flex;
+}
+
+#option-selection div div {
+
+    flex: 1;
 }
 
 #option-labels {
@@ -49,62 +50,58 @@
 #range{
 
     display: flex;
+    justify-content: space-between;
 }
 
 #range-start, #range-end{
 
-    flex:4;
+    display: flex;
+    flex: 3;
 }
 
 #range-separator {
 
-    flex: 1;
-    width: 20px;
-    padding: 0 15px 0 0px;
+    flex: 0 0 30px;
+    margin: 0 5px;
 }
 
 #separator-bar{
 
    width: 100%;
    border-bottom: 2px solid black;
-   margin-top: 13px;
+   margin-top: 17px;
 }
 
 #quantity-form {
 
    display: flex;
-   justify-content: center;
+
 }
 
 .sorteio-input {
 
-    max-width: 80px;
+    width: 100%;
     height: 25px;
 }
 
 .sortear-row {
 
     margin-top: 20px;
-    display: flex;
 }
-
 
 .results {
 
-    background-color: #4cb1ef;
-    border-radius: 5px;
+    margin-top: 10px;
     font-weight: bold;
-    color: white;
     padding: 10px;
-    width: 50px;
-    flex: 5 5 auto;
+    width: 100%;
+    text-align: center;
 }
 
 .sorteio-button{
-    width: 20px;
-    padding: 10px;
+    width: 100%;
+    padding: 10px 0px;
     text-align: center;
-    flex: 1 2 50px;
     max-height: 25px;
 }
 
@@ -122,13 +119,77 @@
 
 .sorteio-title {
 
-    flex: 0 2 auto;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
 }
 
-@media (min-width: 600px){
+.sorteio-numeros-block {
+
+   margin-bottom: 30px;
+
+  }
+
+@media (min-width: 720px){
+
+    .sorteio-numeros-row{
+
+        display: flex;
+    }
+
+    .sorteio-numeros-block {
+
+      flex: 1;
+
+    }
+
+    .sortear-row{
+
+        display: flex;
+    }
+
+    .sorteio-button{
+
+        width: 0;
+        padding: 10px 0px;
+        text-align: center;
+        max-height: 25px;
+        flex: 0 0 100px;
+        background-color: black;
+    }
+
+    .sortear-row {
+
+        margin-top: 20px;
+    }
+
+    .sorteio-title {
+
+        margin-top: 0px;
+        text-align: left;
+        flex: 0 0 150px;
+    }
     
+    .results {
+    
+        margin-top: 0;
+        font-weight: bold;
+        padding: 10px 0;
+        flex: 2;
+        text-align: left;
+
+    }
+
+    .subtitle {
+
+        text-align: left;
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
     #sorteio-separador{
 
         height: 78px;
     }
+
 }

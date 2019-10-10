@@ -35,7 +35,6 @@ export default class Sorteio extends Component {
 
         if(!this.validate()) {
 
-            console.log("calculando...");
             this.setState({rangeError: false, noRepeatError: false, valueError: false}, () => {
             
                 if(unique === "yes") {
@@ -51,12 +50,11 @@ export default class Sorteio extends Component {
                                 break
                             }
                         }
-                        console.log(`random: ${randomNumber}`);
+
                         numbersSorteados.push(randomNumber);
                     }
             
                     this.setState({numbersSorteados});
-                    console.log(numbersSorteados);
     
                 } else {
     
@@ -90,7 +88,6 @@ export default class Sorteio extends Component {
 
         } else if (rangeError){
 
-            console.log("aqui");
             return(
                 <div className="row">
 
@@ -139,7 +136,6 @@ export default class Sorteio extends Component {
 
             if(start > end || start === end){
 
-                console.log("range error");
                 this.setState({rangeError: true});
                 rangeError = true;
                 error = true;
@@ -148,14 +144,13 @@ export default class Sorteio extends Component {
             // if is impossible to calculate unique numbers
             else if(unique === "yes" && quantity > (end - start + 1) ){
 
-                console.log("noRepeatError");
                 this.setState({noRepeatError: true});
                 noRepeatError = true;
                 error = true;
             }
 
         } else {
-            console.log("not a number");
+            
             valueError = true;
             this.setState({valueError: true});
             error = true;
@@ -183,12 +178,9 @@ export default class Sorteio extends Component {
 
         this.setState({unique: e.target.value});
     }
-
-    // change to OnChange
     onChange = e => {
         
         this.setState({[e.target.name] : e.target.value});
-        
     }
 
     render(){
@@ -200,7 +192,7 @@ export default class Sorteio extends Component {
                     <div className="box-content" id="box-content">
                         <h2 className="box-title">Sorteador</h2>
                             <div className="row"> 
-                                <h3 className="subtitle">Sortear Número {this.state.start} - {this.state.end}  </h3>
+                                <h3 className="subtitle">Sortear Número </h3>
                             </div>
                             <div className="full-row">
                                 <div className="sorteio-numeros-row">
@@ -239,22 +231,30 @@ export default class Sorteio extends Component {
                                         <div className="forms-title">Pode repetir números?</div>
                                         <div id="option-selection">
                                             <div id="option-labels">
-                                                <label htmlFor="yes">Sim</label>
-                                                <label htmlFor="no">Não</label>
+                                                <div>
+                                                    <label htmlFor="yes">Sim</label>
+                                                </div>
+                                                <div>
+                                                    <label htmlFor="no">Não</label>
+                                                </div>
                                             </div>
                                             <div id="options-selectors">
-                                            <input 
+                                                <div>
+                                                    <input 
                                                     type="radio" 
                                                     id="no" value="no" 
                                                     onChange={this.handleOption} 
                                                     checked={this.state.unique === "no"}
-                                                />
-                                                <input 
-                                                    type="radio" 
-                                                    id="yes" value="yes" 
-                                                    onChange={this.handleOption}  
-                                                    checked={this.state.unique === "yes"}
-                                                />
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <input 
+                                                        type="radio" 
+                                                        id="yes" value="yes" 
+                                                        onChange={this.handleOption}  
+                                                        checked={this.state.unique === "yes"}
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -276,7 +276,7 @@ export default class Sorteio extends Component {
 
                             </div>
                             <div className="sortear-row">
-                                <div className="button sorteio-button sorteio-button" onClick={this.handleSubmit.bind(this, 1)}>Sortear</div>
+                                <div className="button sorteio-button" onClick={this.handleSubmit.bind(this, 1)}>Sortear</div>
                                 <div className="title sorteio-title">Números sorteados: </div>
                                 <div className="results">
                                 {
