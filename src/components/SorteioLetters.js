@@ -4,8 +4,10 @@ export default class SorteioLetters extends Component {
 
     state = {
 
-        start: 1,
-        end: 10,
+        start: 0,
+        startLetter: 'A',
+        end: 25,
+        endLetter: 'Z',
         quantity: 1,
         unique: "yes",
         numbersSorteados : [],
@@ -14,6 +16,7 @@ export default class SorteioLetters extends Component {
         rangeError: false,
         valueError: false
     }
+
     letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'
     , 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 
     'U', 'V', 'X', 'W', 'Y', 'Z'];
@@ -119,9 +122,6 @@ export default class SorteioLetters extends Component {
     validate = () => {
 
         let {start, end, quantity, unique} = this.state;
-        let noRepeatError = this.state.noRepeatError;
-        let rangeError = this.state.rangeError;
-        let valueError = this.state.valueError;
         let error = false;
 
         // if all values are a number
@@ -129,13 +129,10 @@ export default class SorteioLetters extends Component {
 
             // when the range is <= 0
             quantity = parseInt(quantity);
-            start = parseInt(start);
-            end = parseInt(end);
 
             if(start > end || start === end){
 
                 this.setState({rangeError: true});
-                rangeError = true;
                 error = true;
             } 
 
@@ -143,13 +140,11 @@ export default class SorteioLetters extends Component {
             else if(unique === "yes" && quantity > (end - start + 1) ){
 
                 this.setState({noRepeatError: true});
-                noRepeatError = true;
                 error = true;
             }
 
         } else {
             
-            valueError = true;
             this.setState({valueError: true});
             error = true;
         }
@@ -167,15 +162,30 @@ export default class SorteioLetters extends Component {
         this.setState({unique: e.target.value});
     }
 
-    convertNumberToLetter = ( number ) => {
+    getLetter = () => {
 
-        let letter = this.letters[number];
-        return letter;
+        const {start, end} = this.state;
+        let startLetter = "";
+        let endLetter = "";
+
+        if(start !== ""){
+
+            startLetter = this.letters[start]
+        } 
+
+        if(end !== ""){
+
+            endLetter = this.letters[end];
+        } 
+        
+        this.setState({startLetter, endLetter});
     }
 
     convertLetterToNumber = ( letter, startOrEnd ) => {
 
         // to avoid making creating another error message, it converts wrong values to letters
+        letter = String(letter);
+        letter = letter.toUpperCase();
         let converted = this.letters.indexOf(letter);
         if(converted === -1){
 
@@ -189,23 +199,26 @@ export default class SorteioLetters extends Component {
                 converted = startOrEnd === "start"? 0 : 25; 
             }
         }
-        console.log(`Convertido: ${converted}`);
         return converted;
         
     }
 
     onChange = e => {
     
-        if((e.target.name === "start" || e.target.name == "end") && e.target.value !== ""){
+        if((e.target.name === "start" || e.target.name === "end") && e.target.value !== ""){
 
-            console.log(e.target.value);
             let value = this.convertLetterToNumber(e.target.value, e.target.name);
-            this.setState({[e.target.name] : value});
+            this.setState({[e.target.name] : value}, () => {
+                this.getLetter();
+            });
 
         } else {
 
-            this.setState({[e.target.name] : e.target.value});
+            this.setState({[e.target.name] : e.target.value}, () => {
+                this.getLetter();
+            });
         }
+
     }
 
 
@@ -232,7 +245,7 @@ export default class SorteioLetters extends Component {
                                         id="start"
                                         name="start" 
                                         placeholder="inicio"
-                                        value={this.convertNumberToLetter(this.state.start)}
+                                        value={ this.state.startLetter}
                                         onChange={this.onChange}
                                     />
                                 </div>
@@ -247,7 +260,7 @@ export default class SorteioLetters extends Component {
                                         id="end"
                                         name="end" 
                                         placeholder="fim"
-                                        value={ this.convertNumberToLetter(this.state.end)}
+                                        value={this.state.endLetter}
                                         onChange={this.onChange}
                                     />
                                 </div>

@@ -117,9 +117,6 @@ export default class Sorteio extends Component {
     validate = () => {
 
         let {start, end, quantity, unique} = this.state;
-        let noRepeatError = this.state.noRepeatError;
-        let rangeError = this.state.rangeError;
-        let valueError = this.state.valueError;
         let error = false;
 
         if(!isNaN(start) && !isNaN(end) && !isNaN(quantity)){
@@ -132,7 +129,6 @@ export default class Sorteio extends Component {
             if(start > end || start === end){
 
                 this.setState({rangeError: true});
-                rangeError = true;
                 error = true;
             } 
 
@@ -140,13 +136,11 @@ export default class Sorteio extends Component {
             else if(unique === "yes" && quantity > (end - start + 1) ){
 
                 this.setState({noRepeatError: true});
-                noRepeatError = true;
                 error = true;
             }
 
         } else {
             
-            valueError = true;
             this.setState({valueError: true});
             error = true;
         }
