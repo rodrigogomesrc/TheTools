@@ -13,7 +13,6 @@ export default class Sorteio extends Component {
         quantity: 1,
         unique: "yes",
         numbersSorteados : [],
-        lettersSorteadas : [],
         noRepeatError: false,
         rangeError: false,
         valueError: false
