@@ -6,6 +6,7 @@ import Main from './components/layout/Main';
 import RegraDe3 from './components/pages/RegraDe3';
 import Porcentagem from './components/pages/Porcentagem';
 import Notfound from './components/pages/NotFound';
+import Sorteio from './components/pages/Sorteio';
 
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/" component={Main} />
             <Route path="/calculadora-regra-de-tres" component={RegraDe3} />
             <Route path="/calculadora-porcentagem" component={Porcentagem} />
+            <Route path="/sorteio" component={Sorteio} />
             <Route path="*" component={Notfound} />
           </Switch>
         <Footer />

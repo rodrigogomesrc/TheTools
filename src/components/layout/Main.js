@@ -24,15 +24,23 @@ class Main extends Component {
             {
                 id: 3,
                 title: 'Sorteador',
-                url: "/sortear-numeros-grupos-e-letras",
-                text: "Sorteie números, grupos e letras"
+                url: "/sorteio",
+                text: "Sorteie números e letras"
             },
+            /*
             {
                 id: 4,
+                title: 'Gerador de Grupos',
+                url: "/gerador-de-grupos",
+                text: "Crie fácilmente grupos aleatórios de todos os tamanhos"
+
+            },
+            {
+                id: 5,
                 title: 'Conversor de Tempo',
                 url: "/calculadora-porcentagem",
                 text: "Faça conversões entre segundos, minutos, horas, dias, semanas, meses e anos"
-            }
+            }*/
     
         ]
     }
