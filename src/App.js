@@ -20,7 +20,7 @@ function App() {
             <Route exact path="/" component={Main} />
             <Route path="/calculadora-regra-de-tres" component={RegraDe3} />
             <Route path="/calculadora-porcentagem" component={Porcentagem} />
-            <Route path="/sortear-numeros-grupos-e-letras" component={Sorteio} />
+            <Route path="/sorteio" component={Sorteio} />
             <Route path="*" component={Notfound} />
           </Switch>
         <Footer />
