@@ -14,7 +14,8 @@ export default class SorteioLetters extends Component {
         lettersSorteadas : [],
         noRepeatError: false,
         rangeError: false,
-        valueError: false
+        valueError: false,
+        quantityError: false
     }
 
     letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'
@@ -23,7 +24,7 @@ export default class SorteioLetters extends Component {
 
     error = () => {
 
-        const {noRepeatError, rangeError, valueError} = this.state;
+        const {noRepeatError, rangeError, valueError, quantityError} = this.state;
 
         if(noRepeatError){
 
@@ -37,7 +38,7 @@ export default class SorteioLetters extends Component {
                 </div>
             )
 
-        } else if (rangeError){
+        } if (rangeError){
 
             return(
                 <div className="row">
@@ -49,13 +50,25 @@ export default class SorteioLetters extends Component {
                 </div>
             )
 
-        } else if (valueError){
+        } if (valueError){
 
             return(
                 <div className="row">
 
                     <div>
                         <p className="error" id="regra3-error">Valores inválidos. valores tem que ser números inteiros</p>
+                    </div>
+
+                </div>
+            )
+        } 
+        if (quantityError){
+
+            return(
+                <div className="row">
+
+                    <div>
+                        <p className="error" id="regra3-error">Quantidade inválida. A quantidade tem que ser um número positivo</p>
                     </div>
 
                 </div>
@@ -72,17 +85,19 @@ export default class SorteioLetters extends Component {
 
     randomLetters = () => {
 
-        let {start, end, quantity, unique} = this.state;
-        let numbersSorteados = this.state.numbersSorteados;
-        let randomNumber = null;
-        numbersSorteados = [];
-        quantity = parseInt(quantity);
-        start = parseInt(start);
-        end = parseInt(end);
 
         if(!this.validate()) {
 
-            this.setState({rangeError: false, noRepeatError: false, valueError: false}, () => {
+            this.setState({rangeError: false, noRepeatError: false, 
+                valueError: false, quantityError: false}, () => {
+
+                let {start, end, quantity, unique} = this.state;
+                let numbersSorteados = this.state.numbersSorteados;
+                let randomNumber = null;
+                numbersSorteados = [];
+                quantity = parseInt(quantity);
+                start = parseInt(start);
+                end = parseInt(end);
             
                 if(unique === "yes") {
     
@@ -118,11 +133,9 @@ export default class SorteioLetters extends Component {
 
     }
 
-
     validate = () => {
 
         let {start, end, quantity, unique} = this.state;
-        let error = false;
 
         // if all values are a number
         if(!isNaN(start) && !isNaN(end) && !isNaN(quantity)){
@@ -133,23 +146,28 @@ export default class SorteioLetters extends Component {
             if(start > end || start === end){
 
                 this.setState({rangeError: true});
-                error = true;
+                return true;
             } 
+            if(quantity <= 0){
+
+                this.setState({quantityError: true});
+                return true;
+            }
 
             // if is impossible to calculate unique numbers
-            else if(unique === "yes" && quantity > (end - start + 1) ){
+            else if(unique === "yes" && quantity > 26 ){
 
                 this.setState({noRepeatError: true});
-                error = true;
+                return true;
             }
 
         } else {
             
             this.setState({valueError: true});
-            error = true;
+            return true;
         }
 
-        return error;
+        return false;
     }
 
     handleSubmit = () => {
