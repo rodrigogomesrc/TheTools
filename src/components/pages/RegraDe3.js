@@ -55,7 +55,20 @@ class RegraDe3 extends Component {
 
     onChange = (e) => {
 
-        let val = Number(e.target.value);
+        let strVal = String(e.target.value);
+        let treatedVal = ""
+
+        // eslint-disable-next-line
+        for (let i in strVal){
+
+            if(strVal.charAt(i) === ","){
+                treatedVal += ".";
+            } else {
+                treatedVal += strVal.charAt(i);
+            }
+        }
+
+        let val = Number(treatedVal);
 
         this.setState({[e.target.name] : val},() => {
 
