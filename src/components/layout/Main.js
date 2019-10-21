@@ -27,14 +27,13 @@ class Main extends Component {
                 url: "/sorteio",
                 text: "Sorteie números e letras"
             },
-            /*
             {
                 id: 4,
                 title: 'Gerador de Grupos',
                 url: "/gerador-de-grupos",
                 text: "Crie fácilmente grupos aleatórios de todos os tamanhos"
 
-            },
+            }/*,
             {
                 id: 5,
                 title: 'Conversor de Tempo',

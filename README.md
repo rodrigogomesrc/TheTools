@@ -1,3 +1,16 @@
+## About the Project and why I built it
+
+[this project is made in portuguese only]
+
+This project was made with the intent of knowing and getting used to the React Framework and to help me learn javascript
+This project is only a experimentation of the tecnology and it was not made using the react componentes in the way (I think) they're supposed to be
+it was all about testing. 
+
+And with the knowledge acquired on this project, I have the intent of building more complex and better project down the road. I have some good (or not) Ideas.
+
+Besides that, I have built some tools that can be handy for me and for others on the day by day. Such as to draw numbers and letters; rule of three; percentage and 
+more will be added someday. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
