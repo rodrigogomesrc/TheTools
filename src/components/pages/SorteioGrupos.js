@@ -7,18 +7,64 @@ export default class SorteioGrupos extends Component {
         start: 1,
         end: 10,
         quantity: 2,
-        unique: "yes",
+        reallocate: "yes",
         numbersSorteados : [],
         people : [],
-        name: null
+        groups: [],
+        name: null,
+        length: 0
     }
 
     randomNumbers = () => {
 
         if(!this.validate()) {
 
-            
+            let numbersSorteados = [];
+            let randomNumber = null;
+            const length = this.state.length;
+
+            for(var i = 0; i < length; i++){
+                    
+                while (true){
+
+                    randomNumber = Math.floor(Math.random() * length);
+                    //if the number is not on the list it pushes to the list
+                    if(numbersSorteados.indexOf(randomNumber) === -1){
+                        break
+                    }
+                }
+
+                numbersSorteados.push(randomNumber);
+                
+            }
+            this.setState({numbersSorteados}, () => {
+
+                this.generateGroups();
+            });
         }
+    }
+
+    generateGroups = () => {
+
+        const {quantity, numbersSorteados, people, length} = this.state;
+        let groups = [];
+        let group = [];
+
+        let indice = 0;
+
+        for(var i = 0; indice < length; i++){
+
+            for(var j = 0; j < quantity; j++){
+
+                group.push(people[numbersSorteados[indice]]);
+                indice ++;
+            }
+
+            groups.push(group);
+            group = [];
+        }
+
+        this.setState({groups});
     }
 
     error = () => {
@@ -28,7 +74,7 @@ export default class SorteioGrupos extends Component {
 
     validate = () => {
 
-      return true;
+      return false;
     }
    
     handleSubmit = () => {
@@ -36,20 +82,23 @@ export default class SorteioGrupos extends Component {
         this.randomNumbers();
     }
 
-    addNome = () => {
+    addNome = e => {
 
+        // test it the name is already on the list
+        console.log("adding name...");
+        let {people, name} = this.state;
+        people.push(name);
+        this.setState({people, length: this.state.length + 1});
     }
  
     handleOption = e => {
 
-        this.setState({unique: e.target.value});
+        this.setState({reallocate: e.target.value});
     }
+
     onChange = e => {
         
-        this.setState({[e.target.name] : e.target.value}, () => {
-
-            console.log(this.state.name);
-        });
+        this.setState({[e.target.name] : e.target.value});
     }
 
     render(){
@@ -69,13 +118,17 @@ export default class SorteioGrupos extends Component {
                                     <div className="sorteio-grupos-block" id="name-block">
                                         <div className="forms-title" > Adicione uma Pessoa</div>
                                         <div id="names-form">
-                                            <input 
-                                                className="sorteio-input input"
-                                                id="name-input"
-                                                name="name" 
-                                                placeholder="nome"
-                                                onChange={this.onChange}
-                                            />
+                                            <form>
+                                                <input 
+                                                    className="sorteio-input input"
+                                                    id="name-input"
+                                                    name="name" 
+                                                    placeholder="nome"
+                                                    onChange={this.onChange}
+                                                />
+
+                                            </form>
+                                           
                                             <div className="button sorteio-button" id="add-name-button" onClick={this.addNome}>Adicionar Pessoa</div>
                                         </div>
                                     </div>
@@ -95,17 +148,17 @@ export default class SorteioGrupos extends Component {
                                                 <div>
                                                     <input 
                                                     type="radio" 
-                                                    id="no" value="no" 
+                                                    id="yes" value="yes" 
                                                     onChange={this.handleOption} 
-                                                    checked={this.state.unique === "no"}
+                                                    checked={this.state.reallocate === "yes"}
                                                     />
                                                 </div>
                                                 <div>
                                                     <input 
                                                         type="radio" 
-                                                        id="yes" value="yes" 
+                                                        id="no" value="no" 
                                                         onChange={this.handleOption}  
-                                                        checked={this.state.unique === "yes"}
+                                                        checked={this.state.reallocate === "no"}
                                                     />
                                                 </div>
                                             </div>
