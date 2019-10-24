@@ -11,7 +11,7 @@ export default class SorteioGrupos extends Component {
         numbersSorteados : [],
         people : [],
         groups: [],
-        name: null,
+        name: '',
         length: 0
     }
 
@@ -59,10 +59,18 @@ export default class SorteioGrupos extends Component {
                 group.push(people[numbersSorteados[indice]]);
                 indice ++;
             }
+            
+            // eslint-disable-next-line
+            group.forEach((person, i) => {
+                if(person === undefined){
+                    group[i] = " --- ";
+                }
+            });
 
             groups.push(group);
             group = [];
         }
+
 
         this.setState({groups});
     }
@@ -84,11 +92,22 @@ export default class SorteioGrupos extends Component {
 
     addNome = e => {
 
-        // test it the name is already on the list
-        console.log("adding name...");
+       
         let {people, name} = this.state;
-        people.push(name);
-        this.setState({people, length: this.state.length + 1});
+
+        if(people.indexOf(name) === -1 && name !== ''){
+
+            people.push(name);
+            this.setState({people, length: this.state.length + 1}, () => {
+
+                this.setState({name: ''});
+            });
+
+        } else {
+
+            this.setState({name: ''});
+        }
+       
     }
  
     handleOption = e => {
@@ -124,9 +143,9 @@ export default class SorteioGrupos extends Component {
                                                     id="name-input"
                                                     name="name" 
                                                     placeholder="nome"
+                                                    value={this.state.name}
                                                     onChange={this.onChange}
                                                 />
-
                                             </form>
                                            
                                             <div className="button sorteio-button" id="add-name-button" onClick={this.addNome}>Adicionar Pessoa</div>
@@ -185,7 +204,10 @@ export default class SorteioGrupos extends Component {
                                 <div className="button sorteio-button" onClick={this.handleSubmit}>Sortear</div>
                                 <div className="title sorteio-title">Grupos gerados: </div>
                                 <div className="results">
-                               
+                                    {
+                                        this.state.groups.map((group, indice) => (`Grupo ${indice +1}: ${group.join(', ')}; `))
+                                        //this.state.groups.map((group, indice) => (`Grupo ${indice +1}: ${group.map(person => (`${person}`).join(' '))}; `))
+                                    }
                                 </div>
                             </div>
                             <div>
