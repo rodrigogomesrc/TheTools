@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SorteioGrupos.css';
 
 export default class SorteioGrupos extends Component {
+
     state = {
 
         start: 1,
@@ -12,12 +13,15 @@ export default class SorteioGrupos extends Component {
         people : [],
         groups: [],
         name: '',
-        length: 0
+        length: 0,
+        addedError: false,
+        emptyError: false,
+        quantityError: false
     }
 
     randomNumbers = () => {
 
-        if(!this.validate()) {
+        if(this.validate()) {
 
             let numbersSorteados = [];
             let randomNumber = null;
@@ -33,9 +37,7 @@ export default class SorteioGrupos extends Component {
                         break
                     }
                 }
-
                 numbersSorteados.push(randomNumber);
-                
             }
             this.setState({numbersSorteados}, () => {
 
@@ -77,35 +79,108 @@ export default class SorteioGrupos extends Component {
 
     error = () => {
 
+        const {emptyError, addedError, quantityError, quantity } = this.state;
+        
+        if(emptyError){
+
+            return(
+                <div className="row">
+
+                    <div>
+                        <p className="error" id="regra3-error">Nome não pode ser enviado em branco</p>
+                    </div>
+
+                </div>
+            )
+
+        } if(addedError){
+
+            return(
+                <div className="row">
+
+                    <div>
+                        <p className="error" id="regra3-error">Você já adicionou esse nome</p>
+                    </div>
+
+                </div>
+            )
+
+        } if(quantityError){
+
+            return(
+                <div className="row">
+
+                    <div>
+                        <p className="error" id="regra3-error">{`Impossível gerar grupos com ${quantity} pessoas`}</p>
+                    </div>
+
+                </div>
+            )
+
+        } else {
+
+            return(
+                <div className='temp-separator' id='sorteio-separador'></div>
+            )
+        }
 
     }
 
     validate = () => {
 
-      return false;
+     const {length, quantity, quantityError} = this.state;
+
+      if( quantity === 1 || quantity > length ){
+
+        this.setState({quantityError: true});
+        console.log("error");
+        return false;
+
+      } else {
+
+        if(quantityError === true){
+
+            this.setState({quantityError: false});
+            console.log("not an error");
+        }
+        return true;
+      }
     }
    
     handleSubmit = () => {
 
-        this.randomNumbers();
+        this.setState({quantityError: false, emptyError: false, addedError: false}, () => {
+            this.randomNumbers();
+        });
     }
 
     addNome = e => {
 
-       
         let {people, name} = this.state;
+        let error = false;
 
-        if(people.indexOf(name) === -1 && name !== ''){
+        if(people.indexOf(name) !== -1 ){
+
+            this.setState({addedError: true});
+            error = true;
+
+        }
+
+        if( name === ''){
+
+            this.setState({emptyError: true});
+            error = true;
+
+        }
+
+        if(!error){
 
             people.push(name);
-            this.setState({people, length: this.state.length + 1}, () => {
+            this.setState({people, length: this.state.length + 1, emptyError: false, addedError: false}, () => {
 
                 this.setState({name: ''});
             });
 
-        } else {
-
-            this.setState({name: ''});
         }
        
     }
@@ -117,7 +192,7 @@ export default class SorteioGrupos extends Component {
 
     onChange = e => {
         
-        this.setState({[e.target.name] : e.target.value});
+        this.setState({[e.target.name] : e.target.value, emptyError: false, quantityError: false, addedError: false});
     }
 
     render(){
@@ -206,7 +281,6 @@ export default class SorteioGrupos extends Component {
                                 <div className="results">
                                     {
                                         this.state.groups.map((group, indice) => (`Grupo ${indice +1}: ${group.join(', ')}; `))
-                                        //this.state.groups.map((group, indice) => (`Grupo ${indice +1}: ${group.map(person => (`${person}`).join(' '))}; `))
                                     }
                                 </div>
                             </div>
