@@ -32,6 +32,7 @@ export default class SorteioGrupos extends Component {
                 while (true){
 
                     randomNumber = Math.floor(Math.random() * length);
+
                     //if the number is not on the list it pushes to the list
                     if(numbersSorteados.indexOf(randomNumber) === -1){
                         break
@@ -48,31 +49,60 @@ export default class SorteioGrupos extends Component {
 
     generateGroups = () => {
 
-        const {quantity, numbersSorteados, people, length} = this.state;
+        const {quantity, numbersSorteados, people, length, reallocate} = this.state;
         let groups = [];
         let group = [];
 
         let indice = 0;
 
-        for(var i = 0; indice < length; i++){
+        if(reallocate === "no"){
 
-            for(var j = 0; j < quantity; j++){
+            for(var i = 0; indice < length; i++){
 
-                group.push(people[numbersSorteados[indice]]);
-                indice ++;
-            }
-            
-            // eslint-disable-next-line
-            group.forEach((person, i) => {
-                if(person === undefined){
-                    group[i] = " --- ";
+                for(var j = 0; j < quantity; j++){
+    
+                    group.push(people[numbersSorteados[indice]]);
+                    indice ++;
                 }
-            });
+                
+                // eslint-disable-next-line
+                group.forEach((person, i) => {
+                    if(person === undefined){
+                        group[i] = " --- ";
+                    }
+                });
+    
+                groups.push(group);
+                group = [];
+            }
+        } else {
+
+            let leftoverIndice = 0;
+            let leftover = length % quantity;
+
+            for(i = 0; indice < length - leftover; i++){
+
+                for(j = 0; j < quantity; j++){
+    
+                    group.push(people[numbersSorteados[indice]]);
+                    indice ++;
+                }
 
             groups.push(group);
             group = [];
-        }
 
+            }
+
+            if(leftover > 0){
+
+                for(i = leftover; i > 0; i--){
+
+                    groups[leftoverIndice].push(people[numbersSorteados[length - leftover + i - 1]]);
+                    leftoverIndice++;
+                }
+            }
+            
+        }
 
         this.setState({groups});
     }
@@ -223,7 +253,7 @@ export default class SorteioGrupos extends Component {
                                                 />
                                             </form>
                                            
-                                            <div className="button sorteio-button" id="add-name-button" onClick={this.addNome}>Adicionar Pessoa</div>
+                                            <div className="button sorteio-button" id="add-name-button" onClick={this.addNome}>Adicionar</div>
                                         </div>
                                     </div>
                                 
