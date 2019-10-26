@@ -33,13 +33,13 @@ class Main extends Component {
                 url: "/gerador-de-grupos",
                 text: "Crie fácilmente grupos aleatórios de todos os tamanhos"
 
-            }/*,
+            },
             {
                 id: 5,
                 title: 'Conversor de Tempo',
-                url: "/calculadora-porcentagem",
+                url: "/conversor-de-tempo",
                 text: "Faça conversões entre segundos, minutos, horas, dias, semanas, meses e anos"
-            }*/
+            }
     
         ]
     }
