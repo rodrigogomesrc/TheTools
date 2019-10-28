@@ -78,6 +78,7 @@ class RegraDe3 extends Component {
     }
     render() {
 
+        document.title = "Calcular regra de três";
         return (
 
             <div className="Container" id="regra3">

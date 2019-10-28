@@ -138,6 +138,7 @@ class Porcentagem extends Component {
 
     render() {
 
+        document.title = "Calculadora de porcentagens";
         return(
             <div className='Container'>
                 <div className="top-line line-box" id="porcentagem-line"></div>

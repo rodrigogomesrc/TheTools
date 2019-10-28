@@ -227,6 +227,7 @@ export default class SorteioGrupos extends Component {
 
     render(){
 
+        document.title = "Sortear grupos";
         return(
             <div className="Container">
                 <div className="top-line line-box" id="line"></div>

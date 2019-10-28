@@ -183,6 +183,7 @@ export default class Sorteio extends Component {
 
     render(){
 
+        document.title = "Sorteador de números e letras";
         return(
             <div className="Container">
                 <div className="top-line line-box" id="line"></div>
