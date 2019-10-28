@@ -46,6 +46,7 @@ class Main extends Component {
 
     render() {
 
+        document.title = "TheTools";
         return(
 
             // I put many items here in order to see how it looks like
