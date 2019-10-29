@@ -141,7 +141,7 @@ export default class SorteioGrupos extends Component {
                 <div className="row">
 
                     <div>
-                        <p className="error" id="regra3-error">{`Impossível gerar grupos com ${quantity} pessoas`}</p>
+                        <p className="error" id="regra3-error">{`Pessoas insuficientes para um grupo com ${quantity} pessoas`}</p>
                     </div>
 
                 </div>
@@ -214,6 +214,12 @@ export default class SorteioGrupos extends Component {
         }
        
     }
+
+    cleanList = () => {
+
+        this.setState({people: [], length: 0});
+
+    }
  
     handleOption = e => {
 
@@ -254,10 +260,9 @@ export default class SorteioGrupos extends Component {
                                                 />
                                             </form>
                                            
-                                            <div className="button sorteio-button" id="add-name-button" onClick={this.addNome}>Adicionar</div>
                                         </div>
                                     </div>
-                                
+
                                     <div className="sorteio-grupos-block">
                                         <div className="forms-title">Destribuir pessoas sobrando?</div>
                                         <div id="option-selection">
@@ -306,8 +311,22 @@ export default class SorteioGrupos extends Component {
                                 </div>
 
                             </div>
+                            <div className="row-buttons">
+                                <div className="button row-btn" onClick={this.addNome}>Adicionar Nome</div>
+                                {/*<div className="button row-btn" onClick={this.showList}>Mostrar Lista</div>*/}
+                                <div className="button row-btn" onClick={this.cleanList}>Limpar Lista</div>
+                                <div className="button row-btn" onClick={this.handleSubmit}>Sortear</div>
+                            </div>
+                           
+                           {/*
+                            <div className="full-row">
+                               <div className="lista-row">
+                                   
+                               </div>
+                            </div> 
+                           */}
                             <div className="sortear-row">
-                                <div className="button sorteio-button" onClick={this.handleSubmit}>Sortear</div>
+                               
                                 <div className="title sorteio-title">Grupos gerados: </div>
                                 <div className="results">
                                     {

@@ -161,6 +161,7 @@
     .sortear-row{
 
         display: flex;
+        margin-top: 20px;
     }
 
     .sorteio-button{
@@ -171,11 +172,6 @@
         max-height: 25px;
         flex: 0 0 100px;
         background-color: black;
-    }
-
-    .sortear-row {
-
-        margin-top: 20px;
     }
 
     .sorteio-title {
