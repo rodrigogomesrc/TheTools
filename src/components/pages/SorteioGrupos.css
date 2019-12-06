@@ -75,7 +75,6 @@
 .results {
 
     margin-top: 10px;
-    font-weight: bold;
     padding: 10px;
     width: 100%;
     text-align: center;
@@ -175,7 +174,6 @@
     .results {
     
         margin-top: 0;
-        font-weight: bold;
         padding: 10px 0;
         flex: 2;
         text-align: left;

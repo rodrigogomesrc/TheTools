@@ -220,7 +220,7 @@ export default class SorteioGrupos extends Component {
         this.setState({people: [], length: 0});
 
     }
- 
+
     handleOption = e => {
 
         this.setState({reallocate: e.target.value});
@@ -313,18 +313,19 @@ export default class SorteioGrupos extends Component {
                             </div>
                             <div className="row-buttons">
                                 <div className="button row-btn" onClick={this.addNome}>Adicionar Nome</div>
-                                {/*<div className="button row-btn" onClick={this.showList}>Mostrar Lista</div>*/}
                                 <div className="button row-btn" onClick={this.cleanList}>Limpar Lista</div>
                                 <div className="button row-btn" onClick={this.handleSubmit}>Sortear</div>
                             </div>
-                           
-                           {/*
-                            <div className="full-row">
-                               <div className="lista-row">
-                                   
+                        
+                            <div className="sortear-row">
+                               
+                               <div className="title sorteio-title">Lista: </div>
+                               <div className="results">
+                                   {
+                                       this.state.people.join(', ')
+                                   }
                                </div>
-                            </div> 
-                           */}
+                           </div>
                             <div className="sortear-row">
                                
                                 <div className="title sorteio-title">Grupos gerados: </div>

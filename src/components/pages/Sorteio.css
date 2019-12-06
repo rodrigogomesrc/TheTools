@@ -157,11 +157,11 @@
       flex: 1;
 
     }
-
     .sortear-row{
 
         display: flex;
         margin-top: 20px;
+        min-height: 40px;
     }
 
     .sorteio-button{
