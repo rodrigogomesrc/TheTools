@@ -326,7 +326,7 @@ export default class SorteioGrupos extends Component {
                                    }
                                </div>
                            </div>
-                            <div className="sortear-row">
+                            <div className="sortear-row" id="grupos-list">
                                
                                 <div className="title sorteio-title">Grupos gerados: </div>
                                 <div className="results">

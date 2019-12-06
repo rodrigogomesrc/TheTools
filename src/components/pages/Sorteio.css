@@ -145,6 +145,7 @@
     background-color: blue;
 }
 
+
 @media (min-width: 720px){
 
     .sorteio-numeros-row{
@@ -201,6 +202,11 @@
     #sorteio-separador{
 
         height: 78px;
+    }
+
+    #grupos-list {
+        
+        margin-top: 10px;
     }
 
 }
