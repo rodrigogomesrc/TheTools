@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './SorteioGrupos.css';
+import './../GroupsSuggestion';
+import GroupsSuggestion from './../GroupsSuggestion';
 
 export default class SorteioGrupos extends Component {
 
@@ -340,6 +342,10 @@ export default class SorteioGrupos extends Component {
                                     this.error()
                                 }
                             </div>
+                            <div className="row-full" id="partition">
+                                <div></div>
+                            </div>
+                            <GroupsSuggestion data={this.state}></GroupsSuggestion>
                     </div>
                 </div>
             </div>
