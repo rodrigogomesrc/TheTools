@@ -34,6 +34,28 @@ export class GroupsSuggestion extends Component {
 
         console.log("grupos possíveis");
         console.log(combinations);
+        this.setState({possibilities : combinations});
+    }
+
+    processCombinations = () => {
+
+        const combinations = this.state.possibilities;
+        let text = "";
+        combinations.map(combination => {
+            
+            if(combination[0] === 1){
+
+                text += `${combination[0]} grupo de ${combination[1]}; `;
+
+            } else {
+
+                text += `${combination[0]} grupos de ${combination[1]}; `;
+            }
+            
+            return null;
+        });
+
+        return text;
     }
 
     render() {
@@ -45,7 +67,7 @@ export class GroupsSuggestion extends Component {
                     <div className="title sorteio-title">Possibilidades: </div>
                     <div className="results">
                     {
-                        "nada aqui ainda"
+                        this.processCombinations()
                     }
                     </div>
                 </div>
