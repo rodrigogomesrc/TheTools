@@ -4,58 +4,128 @@ export class GroupsSuggestion extends Component {
 
     state = {
 
-        possibilities: []
+        possibilities: [],
+        primePossibilities: " "
     }
 
     calculate = () => {
 
-        const people = this.props.data.length;
+        let people = this.props.data.length;
         let dividers = [];
         let combinations = [];
         let group;
-        let quantity;
+        let quantityGroups;
+        let currentDivider;
+        let text = " ";
 
-        for (let index = 2; index <= people; index++) {
+        this.setState({primePossibilities: " "}, () => {
+
+            for (let index = 2; index <= people; index++) {
            
-            if(people % index === 0){
+                if(people % index === 0){
+    
+                    dividers.push(index);
+                }            
+            }
+    
+            if(dividers.length === 1) {
 
-                dividers.push(index);
-            }            
-        }
+                people--;
+                combinations = [];
+                dividers = [];
+    
+                for (let index = 2; index <= people; index++) {
+               
+                    if(people % index === 0){
+            
+                        dividers.push(index);
+                    }            
+                }
+    
+                for (let index = 0; index < dividers.length; index++) {
+        
+                    group = {};
+                    currentDivider = dividers[index]
+                    quantityGroups = people / currentDivider;
+                    group.groups = quantityGroups;
+                    group.people = currentDivider;
+                    combinations.push(group);
+                }
+        
+                //Change the combination adding 1 element to the last group
+                combinations.forEach(combination => {
+                    
+                    if((combination.groups - 1) !== 0){
 
-        for (let index = 0; index < dividers.length; index++) {
+                        text += (combination.groups - 1).toString() + " ";
 
-            group = [];
-            quantity = people / dividers[index];
-            group.push(quantity);
-            group.push(dividers[index]);
-            combinations.push(group);
-        }
+                        if((combination.groups - 1) === 1){
 
-        console.log("grupos possíveis");
-        console.log(combinations);
-        this.setState({possibilities : combinations});
+                            text += "grupo de ";
+
+                        } else {
+
+                            text += "grupos de ";
+                        }
+
+                        text += (combination.people).toString() + " e ";
+                    }
+                    
+                    text += "1 ";
+                    text += "grupo de "
+                    text += (combination.people + 1).toString() + "; ";
+    
+                });
+    
+                this.setState({primePossibilities: text});
+    
+            } else {
+
+                for (let index = 0; index < dividers.length; index++) {
+    
+                    group = {};
+                    currentDivider = dividers[index]
+                    quantityGroups = people / currentDivider;
+                    group.groups = quantityGroups;
+                    group.people = currentDivider;
+                    combinations.push(group);
+                }
+                
+                this.setState({possibilities : combinations});
+            }
+
+        });
+
     }
 
     processCombinations = () => {
 
         const combinations = this.state.possibilities;
+        const primePossibilities = this.state.primePossibilities;
         let text = "";
-        combinations.map(combination => {
+       
+        if(primePossibilities !== " "){
+
+            return primePossibilities;
+
+        } else {
+
+            combinations.map(combination => {
             
-            if(combination[0] === 1){
+                if(combination.groups === 1){
+    
+                    text += `${combination.groups} grupo de ${combination.people}; `;
+    
+                } else {
+    
+                    text += `${combination.groups} grupos de ${combination.people}; `;
+                }
+                
+                return null;
+            });
 
-                text += `${combination[0]} grupo de ${combination[1]}; `;
-
-            } else {
-
-                text += `${combination[0]} grupos de ${combination[1]}; `;
-            }
-            
-            return null;
-        });
-
-        return text;
+            return text;
+        }
     }
 
     render() {
