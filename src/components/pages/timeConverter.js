@@ -11,19 +11,43 @@ export default class TimeConverter extends Component {
         valueTwo: 0,
         valueError: false,
         emptyUnitError: false,
-        unities : ["Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano"]
+        unities : ["Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano"],
+        result: null
 
     }
 
     //say that convert using months may be imprecise because a month has variable days and we'll consider 
     // always 30 days and other cases can be imprecise as well
 
+    hourToMinute = () => {
+
+        const { valueOne, valueTwo } = this.state;
+        let minutes = valueOne * 60;
+        this.setState({valueTwo: minutes});
+    }
+
+    minuteToHour = (inverse) => {
+
+        const { valueOne, valueTwo } = this.state;
+        let hours = valueOne / 60;
+        hours = hours.toFixed(2);
+        this.setState({valueTwo: hours});
+    }
 
     convert = () => {
 
+        const {unitOne, unitTwo, valueOne, valueTwo} = this.state;
+
         if(this.validate()){
 
-            console.log("converting");
+            if(unitOne === "Minuto" && unitTwo === "Hora"){
+
+                this.minuteToHour(false);
+
+            } else if (unitOne === "Hora" && unitTwo === "Minuto"){
+
+                 this.hourToMinute(false);
+            }
         }
     }
 
@@ -52,7 +76,7 @@ export default class TimeConverter extends Component {
                 <div className="row">
 
                     <div>
-                        <p className="error" id="regra3-error">Olha as duas unidades</p>
+                        <p className="error" id="regra3-error">Escolha as duas unidades</p>
                     </div>
 
                 </div>
@@ -71,6 +95,16 @@ export default class TimeConverter extends Component {
 
     validate = () => {
 
+        const {unitOne, unitTwo} = this.state;
+
+        if(unitOne === "default" || unitTwo === "default"){
+
+            this.setState({emptyUnitError: true});
+            return false;
+
+        }
+
+        this.setState({emptyUnitError: false});
         return true;
     }
 
@@ -88,16 +122,7 @@ export default class TimeConverter extends Component {
 
     onChange = e => {
 
-        if(e.target.name === "unitOne"){
-
-            this.setState({"valueOne" : e.target.value}, () => (console.log(this.state.valueOne)));
-
-        } else {
-
-            this.setState({"valueTwo" : e.target.value}, () => (console.log(this.state.valueTwo)));
-
-        }
-        console.log(e.target.value);
+        this.setState({"valueOne" : e.target.value}, () => (this.convert()));
        
     }
 
@@ -153,7 +178,7 @@ export default class TimeConverter extends Component {
                                             name="unitTwo" 
                                             placeholder="Número" 
                                             value={this.state.valueTwo}
-                                            onChange={this.onChange} 
+                                            readOnly 
                                         />
 
                                     <div className="form-item">
