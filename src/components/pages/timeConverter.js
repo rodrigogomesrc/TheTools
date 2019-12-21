@@ -21,17 +21,38 @@ export default class TimeConverter extends Component {
 
     hourToMinute = () => {
 
-        const { valueOne, valueTwo } = this.state;
+        const {valueOne} = this.state;
         let minutes = valueOne * 60;
         this.setState({valueTwo: minutes});
     }
 
-    minuteToHour = (inverse) => {
+    minuteToHour = () => {
 
-        const { valueOne, valueTwo } = this.state;
+        const {valueOne} = this.state;
         let hours = valueOne / 60;
         hours = hours.toFixed(2);
         this.setState({valueTwo: hours});
+    }
+
+    secondToMinute = () => {
+
+        const {valueOne} = this.state;
+        let minutes = valueOne / 60;
+        minutes = minutes.toFixed(2);
+        this.setState({valueTwo: minutes});
+    }
+
+    minuteToSecond = () => {
+
+        const { valueOne, valueTwo } = this.state;
+        let seconds = valueOne * 60;
+        this.setState({valueTwo: seconds})
+    }
+
+    sameUnit = () => {
+
+        const {valueOne} = this.state;
+        this.setState({valueTwo: valueOne});
     }
 
     convert = () => {
@@ -42,12 +63,24 @@ export default class TimeConverter extends Component {
 
             if(unitOne === "Minuto" && unitTwo === "Hora"){
 
-                this.minuteToHour(false);
+                this.minuteToHour();
 
             } else if (unitOne === "Hora" && unitTwo === "Minuto"){
 
-                 this.hourToMinute(false);
-            }
+                 this.hourToMinute();
+
+            } else if (unitOne === "Minuto" && unitTwo === "Segundo"){
+
+               this.minuteToSecond();
+
+           } else if (unitOne === "Segundo" && unitTwo === "Minuto"){
+
+                this.secondToMinute();
+
+           } else {
+               
+               this.sameUnit();
+           }
         }
     }
 
