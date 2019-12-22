@@ -15,9 +15,6 @@ export default class TimeConverter extends Component {
         result: null
     }
 
-    //say that convert using months may be imprecise because a month has variable days and we'll consider 
-    // always 30 days and other cases can be imprecise as well
-
     hourToMinute = () => {
 
         const {valueOne} = this.state;
@@ -108,6 +105,230 @@ export default class TimeConverter extends Component {
         this.setState({valueTwo: days});
     }
 
+    dayToWeek = () => {
+
+        const {valueOne} = this.state;
+        let weeks = valueOne / 7;
+        weeks = Number(weeks.toFixed(2));
+        this.setState({valueTwo: weeks});
+    }
+
+    weekToDay = () => {
+
+        const {valueOne} = this.state;
+        let days = valueOne * 7;
+        this.setState({valueTwo: days});
+    }
+
+    weekToMinute = () => {
+
+        const {valueOne} = this.state;
+        let minutes = valueOne * 10080;
+        this.setState({valueTwo: minutes});
+    }
+
+    minuteToWeek = () => {
+
+        const {valueOne} = this.state;
+        let weeks = valueOne / 10080;
+        weeks = Number(weeks.toFixed(3));
+        this.setState({valueTwo: weeks});
+    }
+
+    hourToWeek = () => {
+
+        const {valueOne} = this.state;
+        let weeks = valueOne / 168;
+        weeks = Number(weeks.toFixed(2));
+        this.setState({valueTwo: weeks});
+    }
+
+    weekToHour = () => {
+
+        const {valueOne} = this.state;
+        let hours = valueOne * 168;
+        this.setState({valueTwo: hours});
+    }
+
+    weekToSecond = () => {
+
+        const {valueOne} = this.state;
+        let seconds = valueOne * 604800;
+        this.setState({valueTwo: seconds});
+    }
+
+    secondToWeek = () => {
+
+        const {valueOne} = this.state;
+        let weeks = valueOne / 604800;
+        weeks = Number(weeks.toFixed(5));
+        this.setState({valueTwo: weeks});
+    }
+
+    monthToSecond = () => {
+
+        const {valueOne} = this.state;
+        let seconds = valueOne * 2592000;
+        this.setState({valueTwo: seconds});
+    }
+
+    secondToMonth = () => {
+
+        const {valueOne} = this.state;
+        let months = valueOne / 2592000;
+        months = Number(months.toFixed(5));
+        this.setState({valueTwo: months});
+    }
+
+    monthToMinute = () => {
+
+        const {valueOne} = this.state;
+        let minutes = valueOne * 43200;
+        this.setState({valueTwo: minutes});
+    }
+
+    minuteToMonth = () => {
+
+        const {valueOne} = this.state;
+        let months = valueOne / 43200;
+        months = Number(months.toFixed(5));
+        this.setState({valueTwo: months});
+    } 
+
+    hourToMonth = () => {
+
+        const {valueOne} = this.state;
+        let months = valueOne / 720;
+        months = Number(months.toFixed(3));
+        this.setState({valueTwo: months});
+    }
+
+    monthToHour = () => {
+
+        const {valueOne} = this.state;
+        let hours = valueOne * 720;
+        this.setState({valueTwo: hours});
+    }
+
+    dayToMonth = () => {
+
+        const {valueOne} = this.state;
+        let months = valueOne / 30;
+        months = Number(months.toFixed(2));
+        this.setState({valueTwo: months});
+    }
+
+    monthToDay = () => {
+
+        const {valueOne} = this.state;
+        let days = valueOne * 30;
+        this.setState({valueTwo: days});
+    }
+
+    weekToMonth = () => {
+
+        const {valueOne} = this.state;
+        let months = valueOne / 4;
+        months = Number(months.toFixed(2));
+        this.setState({valueTwo: months});
+    }
+
+    monthToWeek = () => {
+
+        const {valueOne} = this.state;
+        let weeks = valueOne * 4;
+        this.setState({valueTwo: weeks});
+    }
+
+    yearToSecond = () => {
+
+        const {valueOne} = this.state;
+        let seconds = valueOne * 31536000;
+        this.setState({valueTwo: seconds});
+    }
+
+    secondToYear = () => {
+
+        const {valueOne} = this.state;
+        let years = valueOne / 31536000;
+        years = Number(years.toFixed(10));
+        this.setState({valueTwo: years});
+    }
+
+    YearToMinute = () => {
+
+        const {valueOne} = this.state;
+        let minutes = valueOne * 525600;
+        this.setState({valueTwo: minutes});
+    }
+
+    minuteToYear = () => {
+
+        const {valueOne} = this.state;
+        let years = valueOne / 525600;
+        years = Number(years.toFixed(8));
+        this.setState({valueTwo: years});
+    }
+
+    yearToHour = () => {
+
+        const {valueOne} = this.state;
+        let hours = valueOne * 8760;
+        this.setState({valueTwo: hours});
+    }
+
+    hourToYear = () => {
+
+        const {valueOne} = this.state;
+        let years = valueOne / 8760;
+        this.setState({valueTwo: years});
+    }
+
+    yearToDay = () => {
+
+        const {valueOne} = this.state;
+        let days = valueOne * 365;
+        this.setState({valueTwo: days});
+    }
+
+    dayToYear = () => {
+
+        const {valueOne} = this.state;
+        let years = valueOne / 365;
+        years = Number(years.toFixed(3));
+        this.setState({valueTwo: years});
+    }
+
+    yearToWeek = () => {
+
+        const {valueOne} = this.state;
+        let weeks = valueOne * 52;
+        this.setState({valueTwo: weeks});
+    }
+
+    weekToYear = () => {
+
+        const {valueOne} = this.state;
+        let years = valueOne / 52;
+        years = Number(years.toFixed(2));
+        this.setState({valueTwo: years});
+    }
+
+    yearToMonth = () => {
+
+        const {valueOne} = this.state;
+        let months = valueOne * 12;
+        this.setState({valueTwo: months});
+    }
+
+    monthToYear = () => {
+
+        const {valueOne} = this.state;
+        let years = valueOne / 12;
+        years = Number(years.toFixed(2));
+        this.setState({valueTwo: years});
+    }
+
     sameUnit = () => {
 
         const {valueOne} = this.state;
@@ -128,7 +349,36 @@ export default class TimeConverter extends Component {
         MinutoDia : this.minuteToDay,
         SegundoDia : this.secondToDay,
         DiaSegundo : this.dayToSecond,
-
+        DiaSemana : this.dayToWeek,
+        SemanaDia : this.weekToDay,
+        SemanaHora : this.weekToHour,
+        HoraSemana : this.hourToWeek,
+        SemanaMinuto : this.weekToMinute,
+        MinutoSemana : this.minuteToWeek,
+        SemanaSegundo : this.weekToSecond,
+        SegundoSemana : this.secondToWeek,
+        SegundoMês : this.secondToMonth,
+        MêsSegundo : this.monthToSecond,
+        MêsMinuto : this.monthToMinute,
+        MêsHora : this.monthToHour,
+        HoraMês : this.hourToMonth,
+        MinutoMês : this.minuteToMonth,
+        MêsDia : this.monthToDay,
+        DiaMês : this.dayToMonth,
+        MêsSemana : this.monthToWeek,
+        SemanaMês : this.weekToMonth,
+        AnoSegundo : this.yearToSecond,
+        SegundoAno : this.secondToYear,
+        AnoMinuto : this.YearToMinute,
+        MinutoAno : this.minuteToYear,
+        AnoHora : this.yearToHour,
+        HoraAno : this.hourToYear,
+        AnoDia : this.yearToDay,
+        DiaAno : this.dayToYear,
+        AnoSemana : this.yearToWeek,
+        SemanaAno : this.weekToYear,
+        AnoMês : this.yearToMonth,
+        MêsAno : this.monthToYear
     }
 
     convert = () => {
