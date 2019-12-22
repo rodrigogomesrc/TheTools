@@ -168,14 +168,14 @@ export default class TimeConverter extends Component {
     monthToSecond = () => {
 
         const {valueOne} = this.state;
-        let seconds = valueOne * 2592000;
+        let seconds = valueOne * 2622600;
         this.setState({valueTwo: seconds});
     }
 
     secondToMonth = () => {
 
         const {valueOne} = this.state;
-        let months = valueOne / 2592000;
+        let months = valueOne / 2622600;
         months = Number(months.toFixed(5));
         this.setState({valueTwo: months});
     }
@@ -183,14 +183,14 @@ export default class TimeConverter extends Component {
     monthToMinute = () => {
 
         const {valueOne} = this.state;
-        let minutes = valueOne * 43200;
+        let minutes = valueOne * 43710;
         this.setState({valueTwo: minutes});
     }
 
     minuteToMonth = () => {
 
         const {valueOne} = this.state;
-        let months = valueOne / 43200;
+        let months = valueOne / 43710;
         months = Number(months.toFixed(5));
         this.setState({valueTwo: months});
     } 
@@ -198,7 +198,7 @@ export default class TimeConverter extends Component {
     hourToMonth = () => {
 
         const {valueOne} = this.state;
-        let months = valueOne / 720;
+        let months = valueOne / 728;
         months = Number(months.toFixed(3));
         this.setState({valueTwo: months});
     }
@@ -206,14 +206,14 @@ export default class TimeConverter extends Component {
     monthToHour = () => {
 
         const {valueOne} = this.state;
-        let hours = valueOne * 720;
+        let hours = valueOne * 728;
         this.setState({valueTwo: hours});
     }
 
     dayToMonth = () => {
 
         const {valueOne} = this.state;
-        let months = valueOne / 30;
+        let months = valueOne / 30.4167;
         months = Number(months.toFixed(2));
         this.setState({valueTwo: months});
     }
@@ -221,7 +221,7 @@ export default class TimeConverter extends Component {
     monthToDay = () => {
 
         const {valueOne} = this.state;
-        let days = valueOne * 30;
+        let days = valueOne * 30.4167;
         this.setState({valueTwo: days});
     }
 
@@ -243,14 +243,14 @@ export default class TimeConverter extends Component {
     yearToSecond = () => {
 
         const {valueOne} = this.state;
-        let seconds = valueOne * 31536000;
+        let seconds = valueOne * 31557600;
         this.setState({valueTwo: seconds});
     }
 
     secondToYear = () => {
 
         const {valueOne} = this.state;
-        let years = valueOne / 31536000;
+        let years = valueOne / 31557600;
         years = Number(years.toFixed(10));
         this.setState({valueTwo: years});
     }
@@ -258,14 +258,14 @@ export default class TimeConverter extends Component {
     YearToMinute = () => {
 
         const {valueOne} = this.state;
-        let minutes = valueOne * 525600;
+        let minutes = valueOne * 525960;
         this.setState({valueTwo: minutes});
     }
 
     minuteToYear = () => {
 
         const {valueOne} = this.state;
-        let years = valueOne / 525600;
+        let years = valueOne / 525960;
         years = Number(years.toFixed(8));
         this.setState({valueTwo: years});
     }
@@ -273,14 +273,14 @@ export default class TimeConverter extends Component {
     yearToHour = () => {
 
         const {valueOne} = this.state;
-        let hours = valueOne * 8760;
+        let hours = valueOne * 8766;
         this.setState({valueTwo: hours});
     }
 
     hourToYear = () => {
 
         const {valueOne} = this.state;
-        let years = valueOne / 8760;
+        let years = valueOne / 8766;
         this.setState({valueTwo: years});
     }
 
