@@ -13,7 +13,6 @@ export default class TimeConverter extends Component {
         emptyUnitError: false,
         unities : ["Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano"],
         result: null
-
     }
 
     //say that convert using months may be imprecise because a month has variable days and we'll consider 
@@ -30,7 +29,7 @@ export default class TimeConverter extends Component {
 
         const {valueOne} = this.state;
         let hours = valueOne / 60;
-        hours = hours.toFixed(2);
+        hours = Number(hours.toFixed(2));
         this.setState({valueTwo: hours});
     }
 
@@ -38,7 +37,7 @@ export default class TimeConverter extends Component {
 
         const {valueOne} = this.state;
         let minutes = valueOne / 60;
-        minutes = minutes.toFixed(2);
+        minutes = Number(minutes.toFixed(2));
         this.setState({valueTwo: minutes});
     }
 
@@ -60,7 +59,7 @@ export default class TimeConverter extends Component {
 
         const {valueOne} = this.state;
         let hours = valueOne / 3600;
-        hours = hours.toFixed(2);
+        hours = Number(hours.toFixed(2));
         this.setState({valueTwo: hours});
     }
 
@@ -68,7 +67,7 @@ export default class TimeConverter extends Component {
 
         const {valueOne} = this.state;
         let days = valueOne / 24;
-        days = days.toFixed(2);
+        days = Number(days.toFixed(2));
         this.setState({valueTwo: days});
     }
 
@@ -90,7 +89,7 @@ export default class TimeConverter extends Component {
 
         const {valueOne} = this.state;
         let days = valueOne / 1440;
-        days = days.toFixed(3);
+        days = Number(days.toFixed(3));
         this.setState({valueTwo: days});
     }
 
@@ -105,7 +104,7 @@ export default class TimeConverter extends Component {
 
         const {valueOne} = this.state;
         let days = valueOne / 86400;
-        days = days.toFixed(3);
+        days = Number(days.toFixed(3));
         this.setState({valueTwo: days});
     }
 
@@ -115,60 +114,36 @@ export default class TimeConverter extends Component {
         this.setState({valueTwo: valueOne});
     }
 
+     convertionFunctionKeys = {
+
+        MinutoHora : this.minuteToHour,
+        HoraMinuto : this.hourToMinute,
+        MinutoSegundo : this.minuteToSecond,
+        SegundoMinuto : this.secondToMinute,
+        HoraSegundo : this.hourToSecond,
+        SegundoHora : this.secondToHour,
+        DiaHora : this.dayToHour,
+        HoraDia : this.hourToDay,
+        DiaMinuto : this.dayToMinute,
+        MinutoDia : this.minuteToDay,
+        SegundoDia : this.secondToDay,
+        DiaSegundo : this.dayToSecond,
+
+    }
+
     convert = () => {
 
-        const {unitOne, unitTwo, valueOne, valueTwo} = this.state;
+        const {unitOne, unitTwo} = this.state;
 
         if(this.validate()){
 
-            if(unitOne === "Minuto" && unitTwo === "Hora"){
+            let requestedConversion = unitOne.toString() + unitTwo.toString();
+            let conversion = this.convertionFunctionKeys[requestedConversion];
 
-                this.minuteToHour();
+            if(conversion !== undefined){
 
-            } else if (unitOne === "Hora" && unitTwo === "Minuto"){
+                conversion();
 
-                 this.hourToMinute();
-
-            } else if (unitOne === "Minuto" && unitTwo === "Segundo"){
-
-               this.minuteToSecond();
-
-           } else if (unitOne === "Segundo" && unitTwo === "Minuto"){
-
-                this.secondToMinute();
-
-           } else if (unitOne === "Hora" && unitTwo === "Segundo"){
-
-                this.hourToSecond();
-
-            } else if (unitOne === "Segundo" && unitTwo === "Hora"){
-
-                this.secondToHour();
-
-            } else if (unitOne === "Dia" && unitTwo === "Hora"){
-
-                this.dayToHour();
-
-            } else if (unitOne === "Hora" && unitTwo === "Dia"){
-
-               this.hourToDay();
-
-            } else if (unitOne === "Dia" && unitTwo === "Minuto"){
-
-                this.dayToMinute();
-
-            } else if (unitOne === "Minuto" && unitTwo === "Dia"){
-
-                this.minuteToDay();
-
-            } else if (unitOne === "Segundo" && unitTwo === "Dia"){
-
-                this.secondToDay();
-
-            } else if (unitOne === "Dia" && unitTwo === "Segundo"){
-
-                this.dayToSecond();
-                
             } else {
                
                this.sameUnit();
