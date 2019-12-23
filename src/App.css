@@ -23,6 +23,11 @@
     font-weight: bold;
 }
 
+.page-link:hover {
+
+    color: #4c72ef;
+}
+
 .top-line {
 
     height: 5px;
@@ -47,10 +52,16 @@
 .input {
 
     border: none;
-    border-bottom: 1px solid #4cb1ef;
+    border-bottom: 2px solid #4cb1ef;
     padding: 5px;
     text-align: center;
     font-size: 14px;
+}
+
+.input:focus{
+
+    outline: none;
+    border-bottom: 2px solid blue;
 }
 
 .button {
@@ -70,12 +81,6 @@
 
     background-color: grey;
     color: black;
-}
-
-.input:focus{
-
-    outline: none;
-    border-bottom: 2px solid blue;
 }
 
 .error {
