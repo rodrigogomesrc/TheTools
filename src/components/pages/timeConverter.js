@@ -396,7 +396,7 @@ export default class TimeConverter extends Component {
                 conversion();
 
             } else {
-                
+
                this.sameUnit();
            }
         }
@@ -463,31 +463,26 @@ export default class TimeConverter extends Component {
         return true;
     }
 
-    setUnit = e => {
+    callConvertOnSetUnit = () => {
 
         const {unitOne, unitTwo} = this.state;
 
         if(unitOne !== "default" && unitTwo !== "default"){
 
-            if(e.target.name === "first-unit") {
+            this.validate();
+            this.convert();
+        }
+    }
 
-                this.setState({"unitOne": e.target.value}, () => (this.convert()));
-    
-            } else {
-    
-                this.setState({"unitTwo": e.target.value}, () => (this.convert()));
-            }
+    setUnit = e => {
+
+        if(e.target.name === "first-unit") {
+
+            this.setState({"unitOne": e.target.value}, () => (this.callConvertOnSetUnit()));
 
         } else {
-
-            if(e.target.name === "first-unit") {
-
-                this.setState({"unitOne": e.target.value});
-    
-            } else {
-    
-                this.setState({"unitTwo": e.target.value});
-            }
+            
+            this.setState({"unitTwo": e.target.value}, () => (this.callConvertOnSetUnit()));
         }
     }
 

@@ -21,17 +21,16 @@ class Porcentagem extends Component {
 
         const {A, B, A2, B2, valid, valid2, zero, zero2} = this.state;
 
-        if(!this.state.zero && this.state.valid){
+        if((!this.state.zero && this.state.valid) || (!this.state.zero2 && this.state.valid2)){
 
             switch(calcNumber){
                 
-
                 case 1:
 
                     if(valid  && !zero) {
 
                         let answer = A / B * 100;
-                        answer = answer.toFixed(2);
+                        answer = Number(answer.toFixed(2));
                         this.setState({X: answer});
                     }
 
@@ -42,7 +41,7 @@ class Porcentagem extends Component {
                     if(valid2 && !zero2) {
 
                         let answer = (A2 / 100) * B2;
-                        answer = answer.toFixed(2);
+                        answer = Number(answer.toFixed(2));
                         this.setState({X2: answer});
                     }
                     break;
@@ -88,6 +87,7 @@ class Porcentagem extends Component {
 
             // when values are not null it calls the calculate that only works if values are valid
             this.setState({zero: false}, () => {
+
                 this.calculate(1);
             });
         }
@@ -99,6 +99,7 @@ class Porcentagem extends Component {
         } else {
 
             this.setState({zero2: false}, () => {
+
                 this.calculate(2);
             });
         }
@@ -114,8 +115,11 @@ class Porcentagem extends Component {
         for (let i in strVal){
 
             if(strVal.charAt(i) === ","){
+
                 treatedVal += ".";
+
             } else {
+
                 treatedVal += strVal.charAt(i);
             }
         }
@@ -128,10 +132,12 @@ class Porcentagem extends Component {
         }); 
         
         if (this.state.X !== 'X') {
+
             this.setState({X: 'X'});
         }
 
         if (this.state.X2 !== 'X') {
+
             this.setState({X2: 'X'});
         }
     }
