@@ -9,7 +9,7 @@ import Notfound from './components/pages/NotFound';
 import Sorteio from './components/pages/Sorteio';
 import SorteioGrupos from './components/pages/SorteioGrupos';
 import TimeConverter from  './components/pages/timeConverter';
-
+import TimeConverterInfo from './components/TimeConverterInfo';
 import './App.css';
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
             <Route path="/sorteio" component={Sorteio} />
             <Route path="/gerador-de-grupos" component={SorteioGrupos} />
             <Route path="/conversor-de-tempo" component={TimeConverter} />
+            <Route path="/conversor-de-tempo-info" component={TimeConverterInfo} />
             <Route path="*" component={Notfound} />
           </Switch>
         <Footer />

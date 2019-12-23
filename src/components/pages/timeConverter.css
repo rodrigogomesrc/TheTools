@@ -4,6 +4,13 @@
     margin: 0 auto;
 }
 
+#link-holder {
+
+    max-width: 235px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 .time-converter-select{
 
     margin: 10px 0px;

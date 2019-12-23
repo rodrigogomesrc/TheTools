@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "./timeConverter.css";
+import { Link } from 'react-router-dom';
 
 export default class TimeConverter extends Component {
 
@@ -395,7 +396,7 @@ export default class TimeConverter extends Component {
                 conversion();
 
             } else {
-               
+                
                this.sameUnit();
            }
         }
@@ -417,8 +418,8 @@ export default class TimeConverter extends Component {
 
                 </div>
             )
-
         } 
+
         if(emptyUnitError){
 
             return(
@@ -439,13 +440,11 @@ export default class TimeConverter extends Component {
                 <div className='temp-separator' id='sorteio-separador'></div>
             )
         }
-
-
     }
 
     validate = () => {
 
-        const {unitOne, unitTwo} = this.state;
+        const {unitOne, unitTwo, valueOne} = this.state;
 
         if(unitOne === "default" || unitTwo === "default"){
 
@@ -454,7 +453,13 @@ export default class TimeConverter extends Component {
 
         }
 
-        this.setState({emptyUnitError: false});
+        if(isNaN(valueOne)){
+
+            this.setState({valueError: true});
+            return false;
+        }
+
+        this.setState({emptyUnitError: false, valueError : false});
         return true;
     }
 
@@ -488,8 +493,24 @@ export default class TimeConverter extends Component {
 
     onChange = e => {
 
-        this.setState({"valueOne" : e.target.value}, () => (this.convert()));
-       
+        let strValue = String(e.target.value);
+        let treatedValue = ""
+
+        // eslint-disable-next-line
+        for (let i in strValue){
+
+            if(strValue.charAt(i) === ","){
+
+                treatedValue += ".";
+
+            } else {
+
+                treatedValue += strValue.charAt(i);
+            }
+        }
+
+        let value = Number(treatedValue);
+        this.setState({"valueOne" : value},() => (this.convert()));
     }
 
     render() {
@@ -529,7 +550,6 @@ export default class TimeConverter extends Component {
                                             type='text' 
                                             name="unitOne" 
                                             placeholder="Número" 
-                                            value={this.state.valueOne}
                                             onChange={this.onChange} 
                                         />
 
@@ -565,13 +585,17 @@ export default class TimeConverter extends Component {
                                             }
         
                                         </select>
-
+                    
                                     </div>
+                                    
 
                                 </form>
 
                             </div>
 
+                        </div>
+                        <div id="link-holder">
+                            <Link className="page-link"to={"/conversor-de-tempo-info"}>Sobre as fórmulas de conversão</Link>
                         </div>
                         <div className="row">
 
