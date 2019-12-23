@@ -54,7 +54,6 @@ export default class SorteioGrupos extends Component {
         const {quantity, numbersSorteados, people, length, reallocate} = this.state;
         let groups = [];
         let group = [];
-
         let indice = 0;
 
         if(reallocate === "no"){
@@ -69,7 +68,9 @@ export default class SorteioGrupos extends Component {
                 
                 // eslint-disable-next-line
                 group.forEach((person, i) => {
+
                     if(person === undefined){
+
                         group[i] = " --- ";
                     }
                 });
@@ -77,6 +78,7 @@ export default class SorteioGrupos extends Component {
                 groups.push(group);
                 group = [];
             }
+
         } else {
 
             let leftoverIndice = 0;
@@ -103,7 +105,6 @@ export default class SorteioGrupos extends Component {
                     leftoverIndice++;
                 }
             }
-            
         }
 
         this.setState({groups});
@@ -155,7 +156,6 @@ export default class SorteioGrupos extends Component {
                 <div className='temp-separator' id='sorteio-separador'></div>
             )
         }
-
     }
 
     validate = () => {
@@ -165,7 +165,6 @@ export default class SorteioGrupos extends Component {
       if( quantity === 1 || quantity > length ){
 
         this.setState({quantityError: true});
-        console.log("error");
         return false;
 
       } else {
@@ -173,17 +172,15 @@ export default class SorteioGrupos extends Component {
         if(quantityError === true){
 
             this.setState({quantityError: false});
-            console.log("not an error");
         }
+
         return true;
       }
     }
    
     handleSubmit = () => {
 
-        this.setState({quantityError: false, emptyError: false, addedError: false}, () => {
-            this.randomNumbers();
-        });
+        this.setState({quantityError: false, emptyError: false, addedError: false}, () => (this.randomNumbers()));
     }
 
     addNome = e => {
@@ -195,14 +192,12 @@ export default class SorteioGrupos extends Component {
 
             this.setState({addedError: true});
             error = true;
-
         }
 
         if( name === ''){
 
             this.setState({emptyError: true});
             error = true;
-
         }
 
         if(!error){
@@ -212,15 +207,12 @@ export default class SorteioGrupos extends Component {
 
                 this.setState({name: ''});
             });
-
         }
-       
     }
 
     cleanList = () => {
 
         this.setState({people: [], length: 0});
-
     }
 
     handleOption = e => {
