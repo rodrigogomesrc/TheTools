@@ -48,7 +48,7 @@ class Main extends Component {
         return(
 
             // I put many items here in order to see how it looks like
-            <div className="Container">
+            <div className="Container" id="main-page-container">
 
                 <div className="Main-content">
                     <h1>Bem vindo(a) ao TheTools</h1>

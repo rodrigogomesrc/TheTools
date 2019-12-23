@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./timeConverter.css";
 import { Link } from 'react-router-dom';
+import SideMenu from './../layout/SideMenu'; 
 
 export default class TimeConverter extends Component {
 
@@ -509,101 +510,100 @@ export default class TimeConverter extends Component {
     }
 
     render() {
+
+        document.title = "Conversor de tempo";
         return (
-            <div className="Container" id="regra3">
-                <div className="top-line line-box"></div>
-                <div className="box">
-                    
-                    <div className="box-content">
 
-                        <h2 className="box-title">Conversor de Tempo</h2>
-                        
-                        <div className="row" >
-
-                            <div id="time-converter">
-
-                                <form>
-                                    <div className="form-item">
-                                            <select 
-                                                className="select-form time-converter-select" 
-                                                onChange={this.setUnit} 
-                                                name="first-unit"
-                                            >
-                                            <option value="default"> Selecione uma unidade</option>)
-                                            {
-                                                this.state.unities.map((option) => (
-                                                    <option value={option} key={option}>{option}</option>)
-                                                )
-                                            }
-        
-                                        </select>
-
-                                    </div>
-                                    <div className="form-item">
-                                        <input 
-                                            className='input'
-                                            type='text' 
-                                            name="unitOne" 
-                                            placeholder="Número" 
-                                            onChange={this.onChange} 
-                                        />
-
-                                    </div>
-
-                                    <div className="form-item">
-                                        <p>=</p>
-                                    </div>
-                                        <input 
-                                            className='input'
-                                            type='text' 
-                                            name="unitTwo" 
-                                            placeholder="Número" 
-                                            value={this.state.valueTwo}
-                                            readOnly 
-                                        />
-
-                                    <div className="form-item">
-
-                                    </div>
-                                    <div className="form-item">
-
-                                        <select 
-                                            className="select-form time-converter-select" 
-                                            onChange={this.setUnit} 
-                                            name="second-unit"
-                                        >
-                                            <option value="default"> Selecione uma unidade</option>)
-                                            {
-                                                this.state.unities.map((option) => (
-                                                    <option value={option} key={option}>{option}</option>)
-                                                )
-                                            }
-        
-                                        </select>
-                    
-                                    </div>
-                                    
-
-                                </form>
-
-                            </div>
-
-                        </div>
-                        <div id="link-holder">
-                            <Link className="page-link"to={"/conversor-de-tempo-info"}>Sobre as fórmulas de conversão</Link>
-                        </div>
-                        <div className="row">
-
-                            {
-                                this.error()
-                            }
-
-                        </div>
-
-                    </div>
-
+            <div className="page-content">
+                <div className="side-content">
+                    <SideMenu></SideMenu>
                 </div>
+                <div className="main-content">
+                    <div className="Container" id="regra3">
+                        <div className="top-line line-box"></div>
+                        <div className="box">
+                            
+                            <div className="box-content">
 
+                                <h2 className="box-title">Conversor de Tempo</h2>
+                                
+                                <div className="row" >
+
+                                    <div id="time-converter">
+
+                                        <form>
+                                            <div className="form-item">
+                                                    <select 
+                                                        className="select-form time-converter-select" 
+                                                        onChange={this.setUnit} 
+                                                        name="first-unit"
+                                                    >
+                                                    <option value="default"> Selecione uma unidade</option>)
+                                                    {
+                                                        this.state.unities.map((option) => (
+                                                            <option value={option} key={option}>{option}</option>)
+                                                        )
+                                                    }
+                
+                                                </select>
+
+                                            </div>
+                                            <div className="form-item">
+                                                <input 
+                                                    className='input'
+                                                    type='text' 
+                                                    name="unitOne" 
+                                                    placeholder="Número" 
+                                                    onChange={this.onChange} 
+                                                />
+
+                                            </div>
+
+                                            <div className="form-item">
+                                                <p>=</p>
+                                            </div>
+                                                <input 
+                                                    className='input'
+                                                    type='text' 
+                                                    name="unitTwo" 
+                                                    placeholder="Número" 
+                                                    value={this.state.valueTwo}
+                                                    readOnly 
+                                                />
+
+                                            <div className="form-item">
+
+                                            </div>
+                                            <div className="form-item">
+
+                                                <select 
+                                                    className="select-form time-converter-select" 
+                                                    onChange={this.setUnit} 
+                                                    name="second-unit"
+                                                >
+                                                    <option value="default"> Selecione uma unidade</option>)
+                                                    {
+                                                        this.state.unities.map((option) => (
+                                                            <option value={option} key={option}>{option}</option>)
+                                                        )
+                                                    }
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="link-holder">
+                                    <Link className="page-link"to={"/conversor-de-tempo-info"}>Sobre as fórmulas de conversão</Link>
+                                </div>
+                                <div className="row">
+                                    {
+                                        this.error()
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

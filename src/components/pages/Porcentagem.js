@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Porcentagem.css';
+import SideMenu from './../layout/SideMenu'; 
 
 class Porcentagem extends Component {
 
@@ -146,108 +147,116 @@ class Porcentagem extends Component {
 
         document.title = "Calculadora de porcentagens";
         return(
-            <div className='Container'>
-                <div className="top-line line-box" id="porcentagem-line"></div>
-                <div className="box" id="porcentagem-box">
-                    <div className="box-content" id="porcentagem-box-content">
-                        <h2 className="box-title">Porcentagem</h2>
-                        <form onSubmit={this.onSubmit}>
 
-                            <div className="row porcentagens">
-                                <div>
-                                    <input 
-                                        className='input'
-                                        type='text' 
-                                        name="A" 
-                                        placeholder="A" 
-                                        onChange={this.onChange} 
-                                    />
-                                </div>
+            <div className="page-content">
 
-                                <div>
-                                    <p>É</p>
-                                </div>
+                <div className="side-content">
+                    <SideMenu></SideMenu>
+                </div>
 
-                                <div>
-                                    <p className="x">{this.state.X}</p>
-                                </div>
+                <div className="main-content">
+                    <div className='Container'>
+                        <div className="top-line line-box" id="porcentagem-line"></div>
+                        <div className="box" id="porcentagem-box">
+                            <div className="box-content" id="porcentagem-box-content">
+                                <h2 className="box-title">Porcentagem</h2>
+                                <form onSubmit={this.onSubmit}>
 
-                                <div>
-                                    <p>porcento de</p>
-                                </div>
+                                    <div className="row porcentagens">
+                                        <div>
+                                            <input 
+                                                className='input'
+                                                type='text' 
+                                                name="A" 
+                                                placeholder="A" 
+                                                onChange={this.onChange} 
+                                            />
+                                        </div>
 
-                                <div>
-                                    <input 
-                                        className='input'
-                                        type='text' 
-                                        name="B" 
-                                        placeholder="B" 
-                                        onChange={this.onChange} 
-                                    />
-                                </div>
-    
-                            </div>
-                            {this.state.valid? <div className='temp-separator'></div> : (
-                                <div className="row">
+                                        <div>
+                                            <p>É</p>
+                                        </div>
+
+                                        <div>
+                                            <p className="x">{this.state.X}</p>
+                                        </div>
+
+                                        <div>
+                                            <p>porcento de</p>
+                                        </div>
+
+                                        <div>
+                                            <input 
+                                                className='input'
+                                                type='text' 
+                                                name="B" 
+                                                placeholder="B" 
+                                                onChange={this.onChange} 
+                                            />
+                                        </div>
+            
+                                    </div>
+                                    {this.state.valid? <div className='temp-separator'></div> : (
+                                        <div className="row">
+
+                                            <div>
+                                                <p className="error" id="porcentagem-error">Valores Inválidos</p>
+                                            </div>
+
+                                        </div>
+                                    )}        
+                
+                                    <div className="row-full" id="partition">
+                                        <div></div>
+                                    </div>
+                                    <div className="row porcentagens">
 
                                     <div>
-                                        <p className="error" id="porcentagem-error">Valores Inválidos</p>
+                                        <input 
+                                            className='input'
+                                            type='text' 
+                                            name="A2" 
+                                            placeholder="A" 
+                                            onChange={this.onChange} 
+                                        />
+                                        </div>
+
+                                        <div>
+                                            <p>porcento de </p>
+                                        </div>
+
+                                        <div>
+                                            <input 
+                                                className='input'
+                                                type='text' 
+                                                name="B2" 
+                                                placeholder="B" 
+                                                onChange={this.onChange} 
+                                            />
+                                        </div>
+                                        <div>
+                                            <p>É</p>
+                                        </div>
+
+                                        <div>
+                                            <p className="x">{this.state.X2}</p>
+                                        </div>
+                                        
                                     </div>
+                                    {this.state.valid2? <div className='temp-separator'></div> : (
+                                        <div className="row" id="porcentagem-error">
 
-                                </div>
-                            )}        
-        
-                            <div className="row-full" id="partition">
-                                <div></div>
+                                            <div>
+                                                <p className="error">Valores Inválidos</p>
+                                            </div>
+
+                                        </div>
+                                    )}        
+                                </form>
                             </div>
-                            <div className="row porcentagens">
-
-                            <div>
-                                <input 
-                                    className='input'
-                                    type='text' 
-                                    name="A2" 
-                                    placeholder="A" 
-                                    onChange={this.onChange} 
-                                />
-                                </div>
-
-                                <div>
-                                    <p>porcento de </p>
-                                </div>
-
-                                <div>
-                                    <input 
-                                        className='input'
-                                        type='text' 
-                                        name="B2" 
-                                        placeholder="B" 
-                                        onChange={this.onChange} 
-                                    />
-                                </div>
-                                <div>
-                                    <p>É</p>
-                                </div>
-
-                                <div>
-                                    <p className="x">{this.state.X2}</p>
-                                </div>
-                                
-                            </div>
-                            {this.state.valid2? <div className='temp-separator'></div> : (
-                                <div className="row" id="porcentagem-error">
-
-                                    <div>
-                                        <p className="error">Valores Inválidos</p>
-                                    </div>
-
-                                </div>
-                            )}        
-                        </form>
-                       
+                        </div>
                     </div>
                 </div>
-        
             </div>
         )
     }

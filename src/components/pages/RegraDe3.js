@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './RegraDe3.css';
+import './../layout/SideMenu';
+import SideMenu from './../layout/SideMenu';
 
 
 class RegraDe3 extends Component {
@@ -83,93 +85,101 @@ class RegraDe3 extends Component {
 
         document.title = "Calcular regra de três";
         return (
+            <div className="page-content">
+                <div className="side-content">
+                    <SideMenu></SideMenu>
+                </div>
+                <div className="main-content">
 
-            <div className="Container" id="regra3">
-                <div className="top-line line-box"></div>
-                <div className="box">
-                    
-                    <div className="box-content">
-
-                        <h2 className="box-title">Regra de Três</h2>
-                        <form>
-
-                            <div className="row">
-                                <div>
-                                    <input 
-                                        className='input'
-                                        type='text' 
-                                        name="A" 
-                                        placeholder="A" 
-                                        onChange={this.onChange} 
-                                    />
-                                </div>
-
-                                <div>
-                                    <p>Está Para</p>
-                                </div>
-
-                                <div>
-
-                                    <input 
-                                        className='input'
-                                        type='text' 
-                                        name="B" 
-                                        placeholder="B" 
-                                        onChange={this.onChange}
-                                    />
-                                </div>
-
-                            </div>
+                    <div className="Container" id="regra3">
+                    <div className="top-line line-box"></div>
+                    <div className="box">
                         
-                            
-                        <div className="row-full">
+                        <div className="box-content">
 
-                            <div>
-                                <p id="middle">Assim Como</p>
+                            <h2 className="box-title">Regra de Três</h2>
+                            <form>
+
+                                <div className="row">
+                                    <div>
+                                        <input 
+                                            className='input'
+                                            type='text' 
+                                            name="A" 
+                                            placeholder="A" 
+                                            onChange={this.onChange} 
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <p>Está Para</p>
+                                    </div>
+
+                                    <div>
+
+                                        <input 
+                                            className='input'
+                                            type='text' 
+                                            name="B" 
+                                            placeholder="B" 
+                                            onChange={this.onChange}
+                                        />
+                                    </div>
+
+                                </div>
+                            
+                                
+                            <div className="row-full">
+
+                                <div>
+                                    <p id="middle">Assim Como</p>
+                                </div>
+                                
                             </div>
                             
-                        </div>
-                        
-                        <div className="row">
-
-                                <div>
-                                    <input 
-                                        className='input'
-                                        type='text' 
-                                        name="C" 
-                                        placeholder="C" 
-                                        onChange={this.onChange} 
-                                    />    
-                                </div>
-
-                                <div>
-                                    <p> Está Para </p>
-                                </div>
-
-                                <div>
-                                  <p className="x">{this.state.X}</p>
-                                </div>
-                            
-                        </div>
-
-                        {this.state.valid? null : (
                             <div className="row">
 
-                                <div>
-                                    <p className="error" id="regra3-error">Valores Inválidos</p>
-                                </div>
+                                    <div>
+                                        <input 
+                                            className='input'
+                                            type='text' 
+                                            name="C" 
+                                            placeholder="C" 
+                                            onChange={this.onChange} 
+                                        />    
+                                    </div>
 
+                                    <div>
+                                        <p> Está Para </p>
+                                    </div>
+
+                                    <div>
+                                    <p className="x">{this.state.X}</p>
+                                    </div>
+                                
                             </div>
-                        )}        
-        
-                        </form>
+
+                            {this.state.valid? null : (
+                                <div className="row">
+
+                                    <div>
+                                        <p className="error" id="regra3-error">Valores Inválidos</p>
+                                    </div>
+
+                                </div>
+                            )}        
+            
+                            </form>
+
+                        </div>
+
+                    </div>
 
                     </div>
 
                 </div>
 
             </div>
-            
         )
     }
 }

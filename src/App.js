@@ -17,7 +17,6 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-  
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/calculadora-regra-de-tres" component={RegraDe3} />
