@@ -1,0 +1,25 @@
+#time-converter{
+
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+#link-holder {
+
+    max-width: 235px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.time-converter-select{
+
+    margin: 10px 0px;
+}
+
+.select-form {
+
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #4cb1ef;
+}
