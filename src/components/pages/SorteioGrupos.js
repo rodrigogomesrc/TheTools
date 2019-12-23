@@ -16,7 +16,8 @@ export default class SorteioGrupos extends Component {
         length: 0,
         addedError: false,
         emptyError: false,
-        quantityError: false
+        quantityError: false,
+        valueError: false
     }
 
     randomNumbers = () => {
@@ -109,7 +110,7 @@ export default class SorteioGrupos extends Component {
 
     error = () => {
 
-        const {emptyError, addedError, quantityError, quantity } = this.state;
+        const {emptyError, addedError, quantityError, quantity, valueError } = this.state;
         
         if(emptyError){
 
@@ -147,6 +148,18 @@ export default class SorteioGrupos extends Component {
                 </div>
             )
 
+        } if(valueError){
+
+            return(
+                <div className="row">
+
+                    <div>
+                        <p className="error" id="regra3-error">{`Valor inválido. Preencha a quantidade com número`}</p>
+                    </div>
+
+                </div>
+            )
+
         } else {
 
             return(
@@ -158,21 +171,32 @@ export default class SorteioGrupos extends Component {
 
     validate = () => {
 
-     const {length, quantity, quantityError} = this.state;
+     const {length, quantity, quantityError, valueError} = this.state;
+
+     console.log(quantity);
+     console.log(isNaN(quantity));
 
       if( quantity === 1 || quantity > length ){
 
         this.setState({quantityError: true});
-        console.log("error");
         return false;
+
+      } else if(isNaN(quantity)){
+
+            this.setState({valueError: true});
 
       } else {
 
         if(quantityError === true){
 
             this.setState({quantityError: false});
-            console.log("not an error");
         }
+
+        if(valueError === true){
+
+            this.setState({valueError: false});
+        }
+
         return true;
       }
     }

@@ -20,7 +20,7 @@ class RegraDe3 extends Component {
         if(!this.state.zero && this.state.valid){
 
             let X = (this.state.B * this.state.C) / this.state.A;
-            X = X.toFixed(2);
+            X = Number(X.toFixed(2));
             this.setState({X});
         }
     }
@@ -62,8 +62,11 @@ class RegraDe3 extends Component {
         for (let i in strVal){
 
             if(strVal.charAt(i) === ","){
+
                 treatedVal += ".";
+
             } else {
+                
                 treatedVal += strVal.charAt(i);
             }
         }
