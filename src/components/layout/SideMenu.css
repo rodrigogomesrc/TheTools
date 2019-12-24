@@ -1,0 +1,32 @@
+.side-menu {
+
+    background-color: rgb(35, 35, 45);
+    height: 100%;
+}
+
+.link-holder {
+
+    padding: 20px;
+}
+
+.side-menu-link {
+
+    color: white;
+    text-decoration: none;
+}
+
+.side-link-content {
+
+    padding: 10px;
+    background-color: rgb(55, 55, 65);
+    margin-bottom: 7px;
+    text-align: center;
+    border-bottom: 4px solid #4cb1ef;
+}
+
+.side-link-content:hover{
+
+    background-color:rgb(75, 75, 85);
+    cursor: pointer;
+    color:#4cb1ef;
+}

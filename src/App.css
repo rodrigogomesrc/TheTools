@@ -8,12 +8,32 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
-    min-height: calc(100vh - 310px);
+    min-height: calc(100vh - 305px);
 }
 
 .App {
 
     background-color: #fafafa;
+}
+
+.side-content {
+
+    flex-basis: 280px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: none;
+}
+
+.page-content{
+
+    display: flex;
+}
+
+.main-content {
+
+    flex : 1;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .page-link {
@@ -142,8 +162,22 @@
     font-weight: bold;
 }
 
-@media (min-width: 600px){
+#main-page-container {
 
+   margin-top: 50px;
+   margin-bottom: 50px;
+
+}
+
+@media (min-width : 850px){
+
+    .side-content {
+
+        display: inline;
+    }
+}
+
+@media (min-width: 600px){
 
     .row {
 

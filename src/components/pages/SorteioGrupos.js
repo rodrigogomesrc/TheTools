@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SorteioGrupos.css';
 import './../GroupsSuggestion';
 import GroupsSuggestion from './../GroupsSuggestion';
+import SideMenu from './../layout/SideMenu'; 
 
 export default class SorteioGrupos extends Component {
 
@@ -248,115 +249,121 @@ export default class SorteioGrupos extends Component {
 
         document.title = "Sortear grupos";
         return(
-            <div className="Container">
-                <div className="top-line line-box" id="line"></div>
-                <div className="box" id="box">
-                    <div className="box-content" id="box-content">
-                        <h2 className="box-title">Gerador de Grupos</h2>
-                            <div className="row"> 
-                                <h3 className="subtitle">Sortear Grupo </h3>
-                            </div>
-                            <div className="full-row">
-                                <div className="sorteio-grupos-row">
-
-                                    <div className="sorteio-grupos-block" id="name-block">
-                                        <div className="forms-title" > Adicione uma Pessoa</div>
-                                        <div id="names-form">
-                                            <form>
-                                                <input 
-                                                    className="sorteio-input input"
-                                                    id="name-input"
-                                                    name="name" 
-                                                    placeholder="nome"
-                                                    value={this.state.name}
-                                                    onChange={this.onChange}
-                                                />
-                                            </form>
-                                           
-                                        </div>
+            <div className="page-content">
+                <div className="side-content">
+                    <SideMenu></SideMenu>
+                </div>
+                <div className="main-content">
+                    <div className="Container">
+                        <div className="top-line line-box" id="line"></div>
+                        <div className="box" id="box">
+                            <div className="box-content" id="box-content">
+                                <h2 className="box-title">Gerador de Grupos</h2>
+                                    <div className="row"> 
+                                        <h3 className="subtitle">Sortear Grupo </h3>
                                     </div>
+                                    <div className="full-row">
+                                        <div className="sorteio-grupos-row">
 
-                                    <div className="sorteio-grupos-block">
-                                        <div className="forms-title">Destribuir pessoas sobrando?</div>
-                                        <div id="option-selection">
-                                            <div id="option-labels">
-                                                <div>
-                                                    <label htmlFor="yes">Sim</label>
-                                                </div>
-                                                <div>
-                                                    <label htmlFor="no">Não</label>
+                                            <div className="sorteio-grupos-block" id="name-block">
+                                                <div className="forms-title" > Adicione uma Pessoa</div>
+                                                <div id="names-form">
+                                                    <form>
+                                                        <input 
+                                                            className="sorteio-input input"
+                                                            id="name-input"
+                                                            name="name" 
+                                                            placeholder="nome"
+                                                            value={this.state.name}
+                                                            onChange={this.onChange}
+                                                        />
+                                                    </form>
+                                                
                                                 </div>
                                             </div>
-                                            <div id="options-selectors">
-                                                <div>
-                                                    <input 
-                                                    type="radio" 
-                                                    id="yes" value="yes" 
-                                                    onChange={this.handleOption} 
-                                                    checked={this.state.reallocate === "yes"}
-                                                    />
+
+                                            <div className="sorteio-grupos-block">
+                                                <div className="forms-title">Destribuir pessoas sobrando?</div>
+                                                <div id="option-selection">
+                                                    <div id="option-labels">
+                                                        <div>
+                                                            <label htmlFor="yes">Sim</label>
+                                                        </div>
+                                                        <div>
+                                                            <label htmlFor="no">Não</label>
+                                                        </div>
+                                                    </div>
+                                                    <div id="options-selectors">
+                                                        <div>
+                                                            <input 
+                                                            type="radio" 
+                                                            id="yes" value="yes" 
+                                                            onChange={this.handleOption} 
+                                                            checked={this.state.reallocate === "yes"}
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <input 
+                                                                type="radio" 
+                                                                id="no" value="no" 
+                                                                onChange={this.handleOption}  
+                                                                checked={this.state.reallocate === "no"}
+                                                            />
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div>
+                                            </div>
+                                            <div className="sorteio-grupos-block"> 
+                                                <div className="forms-title" > Pessoas por Grupo</div>
+                                                <div id="quantity-form">
                                                     <input 
-                                                        type="radio" 
-                                                        id="no" value="no" 
-                                                        onChange={this.handleOption}  
-                                                        checked={this.state.reallocate === "no"}
+                                                        className="sorteio-input input"
+                                                        id="quantity"
+                                                        name="quantity" 
+                                                        placeholder="quantidade"
+                                                        value={this.state.quantity}
+                                                        onChange={this.onChange}
                                                     />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="sorteio-grupos-block"> 
-                                        <div className="forms-title" > Pessoas por Grupo</div>
-                                        <div id="quantity-form">
-                                            <input 
-                                                className="sorteio-input input"
-                                                id="quantity"
-                                                name="quantity" 
-                                                placeholder="quantidade"
-                                                value={this.state.quantity}
-                                                onChange={this.onChange}
-                                            />
+                                    
+                                    <div className="row-buttons">
+                                        <div className="button row-btn" onClick={this.addNome}>Adicionar Nome</div>
+                                        <div className="button row-btn" onClick={this.cleanList}>Limpar Lista</div>
+                                        <div className="button row-btn" onClick={this.handleSubmit}>Sortear</div>
+                                    </div>
+                                
+                                    <div className="sortear-row">
+                                    
+                                    <div className="title sorteio-title">Lista: </div>
+                                    <div className="results">
+                                        {
+                                            this.state.people.join(', ')
+                                        }
+                                    </div>
+                                </div>
+                                    <div className="sortear-row" id="grupos-list">
+                                    
+                                        <div className="title sorteio-title">Grupos gerados: </div>
+                                        <div className="results">
+                                            {
+                                                this.state.groups.map((group, indice) => (`Grupo ${indice +1}: ${group.join(', ')}; `))
+                                            }
                                         </div>
                                     </div>
-
-                                </div>
-
+                                    <div>
+                                        {
+                                            this.error()
+                                        }
+                                    </div>
+                                    <div className="row-full" id="partition">
+                                        <div></div>
+                                    </div>
+                                    <GroupsSuggestion data={this.state}></GroupsSuggestion>
                             </div>
-                            <div className="row-buttons">
-                                <div className="button row-btn" onClick={this.addNome}>Adicionar Nome</div>
-                                <div className="button row-btn" onClick={this.cleanList}>Limpar Lista</div>
-                                <div className="button row-btn" onClick={this.handleSubmit}>Sortear</div>
-                            </div>
-                        
-                            <div className="sortear-row">
-                               
-                               <div className="title sorteio-title">Lista: </div>
-                               <div className="results">
-                                   {
-                                       this.state.people.join(', ')
-                                   }
-                               </div>
-                           </div>
-                            <div className="sortear-row" id="grupos-list">
-                               
-                                <div className="title sorteio-title">Grupos gerados: </div>
-                                <div className="results">
-                                    {
-                                        this.state.groups.map((group, indice) => (`Grupo ${indice +1}: ${group.join(', ')}; `))
-                                    }
-                                </div>
-                            </div>
-                            <div>
-                                {
-                                    this.error()
-                                }
-                            </div>
-                            <div className="row-full" id="partition">
-                                <div></div>
-                            </div>
-                            <GroupsSuggestion data={this.state}></GroupsSuggestion>
+                        </div>
                     </div>
                 </div>
             </div>
