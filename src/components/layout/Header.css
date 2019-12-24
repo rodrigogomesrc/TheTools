@@ -1,14 +1,15 @@
 #header {
+
     background-color: rgb(30, 30, 30);
     color: white;
-    height: 50px;
+    height: 45px;
     padding: 20px;
 }
 
 #title {
 
     float: left;
-    margin-left: 75px;
+    margin-left: 55px;
 }
 
 .navLink {
