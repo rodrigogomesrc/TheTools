@@ -47,11 +47,10 @@ class Main extends Component {
         document.title = "TheTools";
         return(
 
-            // I put many items here in order to see how it looks like
             <div className="Container" id="main-page-container">
 
                 <div className="Main-content">
-                    <h1>Bem vindo(a) ao TheTools</h1>
+                    <h1>TheTools ferramentas de cálculo</h1>
                     <p>TheTools é um conjunto de ferramentas matemáticas para ajudar em cálculos do dia a dia.</p>
                     <p>Aqui abaixo estão as ferramentas inclusas no site.</p>
                 </div>
