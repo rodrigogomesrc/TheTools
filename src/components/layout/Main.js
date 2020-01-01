@@ -44,14 +44,14 @@ class Main extends Component {
 
     render() {
 
-        document.title = "TheTools";
+        document.title = "Toolks";
         return(
 
             <div className="Container" id="main-page-container">
 
                 <div className="Main-content">
-                    <h1>TheTools ferramentas de cálculo</h1>
-                    <p>TheTools é um conjunto de ferramentas matemáticas para ajudar em cálculos do dia a dia.</p>
+                    <h1>Toolks ferramentas de cálculo</h1>
+                    <p>Toolks é um conjunto de ferramentas matemáticas para ajudar em cálculos do dia a dia.</p>
                     <p>Aqui abaixo estão as ferramentas inclusas no site.</p>
                 </div>
                 {

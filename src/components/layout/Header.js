@@ -8,7 +8,7 @@ function Header() {
 
       <header>
         <div id="header">
-          <h1 id="title"><Link className="navLink" to="/">TheTools</Link></h1>
+          <h1 id="title"><Link className="navLink" to="/">Toolks</Link></h1>
           <div id="button">
           </div>
         </div>
