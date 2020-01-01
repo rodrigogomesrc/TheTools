@@ -3,6 +3,7 @@ import './SorteioGrupos.css';
 import './../GroupsSuggestion';
 import GroupsSuggestion from './../GroupsSuggestion';
 import SideMenu from './../layout/SideMenu'; 
+import Helmet from 'react-helmet';
 
 export default class SorteioGrupos extends Component {
 
@@ -247,9 +248,15 @@ export default class SorteioGrupos extends Component {
 
     render(){
 
-        document.title = "Sortear grupos";
         return(
             <div className="page-content">
+
+                <Helmet>
+                    <title>Gerador de Grupos</title>
+                    <meta name="description" content="Gere ou sorteie grupos a partir de uma lista de nomes e veja sugestões de quantidade
+                    de grupos de acordo com a quantidade de componentes" />
+                </Helmet>
+
                 <div className="side-content">
                     <SideMenu></SideMenu>
                 </div>

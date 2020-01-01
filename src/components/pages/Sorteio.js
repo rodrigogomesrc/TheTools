@@ -3,6 +3,7 @@ import './Sorteio.css';
 import '../SorteioLetters';
 import SorteioLetters from '../SorteioLetters';
 import SideMenu from './../layout/SideMenu'; 
+import Helmet from 'react-helmet';
 
 export default class Sorteio extends Component {
 
@@ -184,9 +185,13 @@ export default class Sorteio extends Component {
 
     render(){
 
-        document.title = "Sorteador de números e letras";
         return(
             <div className="page-content">
+                <Helmet>
+                    <title>Sorteador de números e letras</title>
+                    <meta name="description" content="Sorteie um ou vários números ou letras, únicos ou não
+                     de uma determinada faixa" />
+                </Helmet>
                 <div className="side-content">
                     <SideMenu></SideMenu>
                 </div>

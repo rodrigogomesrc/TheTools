@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './RegraDe3.css';
 import './../layout/SideMenu';
 import SideMenu from './../layout/SideMenu';
-
+import Helmet from 'react-helmet';
 
 class RegraDe3 extends Component {
 
@@ -83,9 +83,14 @@ class RegraDe3 extends Component {
     }
     render() {
 
-        document.title = "Calcular regra de três";
         return (
             <div className="page-content">
+
+                <Helmet>
+                    <title>Calculadora de regra de três</title>
+                    <meta name="description" content="Faça cálculo de regra de trẽs de forma rápida e fácil" />
+                </Helmet>
+
                 <div className="side-content">
                     <SideMenu></SideMenu>
                 </div>

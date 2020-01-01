@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./timeConverter.css";
 import { Link } from 'react-router-dom';
 import SideMenu from './../layout/SideMenu'; 
+import Helmet from 'react-helmet';
 
 export default class TimeConverter extends Component {
 
@@ -511,10 +512,16 @@ export default class TimeConverter extends Component {
 
     render() {
 
-        document.title = "Conversor de tempo";
         return (
 
             <div className="page-content">
+                
+                <Helmet>
+                    <title>Conversor de Tempo</title>
+                    <meta name="description" content="Faça conversões entre segundos, minutos, horas, dias, semanas, 
+                    meses e anos" />
+                </Helmet>
+
                 <div className="side-content">
                     <SideMenu></SideMenu>
                 </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Porcentagem.css';
 import SideMenu from './../layout/SideMenu'; 
+import Helmet from 'react-helmet';
 
 class Porcentagem extends Component {
 
@@ -145,10 +146,14 @@ class Porcentagem extends Component {
 
     render() {
 
-        document.title = "Calculadora de porcentagens";
         return(
 
             <div className="page-content">
+
+                <Helmet>
+                    <title>Calculadora de Porcentagens</title>
+                    <meta name="description" content="Faça cálculos de porcentagem de forma fácil" />
+                </Helmet>
 
                 <div className="side-content">
                     <SideMenu></SideMenu>

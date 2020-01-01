@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Item from '../Item';
 import './Main.css';
+import Helmet from 'react-helmet';
 
 class Main extends Component {
     
@@ -44,10 +45,15 @@ class Main extends Component {
 
     render() {
 
-        document.title = "Toolks";
         return(
 
             <div className="Container" id="main-page-container">
+
+                <Helmet>
+                    <title>Toolks</title>
+                    <meta name="description" content="Toolks é um conjunto de ferramentas de cálculo, como para gerar grupos, calcular regra de três,
+                calcular porcentagem e sortear números e letras" />
+                </Helmet>
 
                 <div className="Main-content">
                     <h1>Toolks ferramentas de cálculo</h1>

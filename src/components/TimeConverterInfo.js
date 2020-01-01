@@ -22,6 +22,7 @@ function TimeConverterInfo() {
 
     return (
         <div className="page-content">
+
             <div className="side-content">
                 <SideMenu></SideMenu>
             </div>
