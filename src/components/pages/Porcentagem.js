@@ -151,8 +151,9 @@ class Porcentagem extends Component {
             <div className="page-content">
 
                 <Helmet>
-                    <title>Calculadora de Porcentagens</title>
-                    <meta name="description" content="Faça cálculos de porcentagem de forma fácil" />
+                    <title>Calculadora de Porcentagem</title>
+                    <meta name="description" content="Calcular porcentagem. Cálculo de Porcentagem de forma fácil.
+                    Saber quantos porcento são" />
                 </Helmet>
 
                 <div className="side-content">

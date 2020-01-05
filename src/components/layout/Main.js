@@ -24,7 +24,7 @@ class Main extends Component {
                 id: 3,
                 title: 'Sorteador',
                 url: "/sorteio",
-                text: "Sorteie números e letras"
+                text: "Sorteie números e letras únicos ou com repetição"
             },
             {
                 id: 4,

@@ -518,8 +518,8 @@ export default class TimeConverter extends Component {
                 
                 <Helmet>
                     <title>Conversor de Tempo</title>
-                    <meta name="description" content="Faça conversões entre segundos, minutos, horas, dias, semanas, 
-                    meses e anos" />
+                    <meta name="description" content="Conversor de tempo. Converta entre segundos, minutos, 
+                    horas, dias, semanas, meses e anos" />
                 </Helmet>
 
                 <div className="side-content">

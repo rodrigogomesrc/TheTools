@@ -188,9 +188,9 @@ export default class Sorteio extends Component {
         return(
             <div className="page-content">
                 <Helmet>
-                    <title>Sorteador de números e letras</title>
-                    <meta name="description" content="Sorteie um ou vários números ou letras, únicos ou não
-                     de uma determinada faixa" />
+                    <title>Sorteie letras e números</title>
+                    <meta name="description" content="Sortear números e letras. Sorteio de forma fácil números e
+                     letras repetidos ou únicos" />
                 </Helmet>
                 <div className="side-content">
                     <SideMenu></SideMenu>

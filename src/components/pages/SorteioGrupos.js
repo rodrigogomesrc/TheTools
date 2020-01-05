@@ -252,9 +252,9 @@ export default class SorteioGrupos extends Component {
             <div className="page-content">
 
                 <Helmet>
-                    <title>Gerador de Grupos</title>
-                    <meta name="description" content="Gere ou sorteie grupos a partir de uma lista de nomes e veja sugestões de quantidade
-                    de grupos de acordo com a quantidade de componentes" />
+                    <title>Sorteador de Grupos</title>
+                    <meta name="description" content="Sorteio grupos. Sorteio de nomes a partir de uma lista.
+                    Crie grupos de vários tamanhos" />
                 </Helmet>
 
                 <div className="side-content">
