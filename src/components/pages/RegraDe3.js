@@ -88,8 +88,8 @@ class RegraDe3 extends Component {
 
                 <Helmet>
                     <title>Calculadora de regra de três</title>
-                    <meta name="description" content="Calcule regra de três. Cálculo de regra de três simples
-                    de forma fácil" />
+                    <meta name="description" content="Calcular regra de três. Cálculadora de regra de três simples 
+                    e fácil" />
                 </Helmet>
 
                 <div className="side-content">
